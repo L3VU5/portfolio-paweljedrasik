@@ -52,13 +52,13 @@ const AppHeader = () => {
 								{activeTheme === 'dark' ? (
 									<Image
 										src={developerDark}
-										className="h-10"
+										className="h-10 max-w-52"
 										alt="Dark Logo"
 									/>
 								) : (
 									<Image
-									src={developerLight}
-									className="h-10"
+										src={developerLight}
+										className="h-10 max-w-52"
 										alt="Light Logo"
 									/>
 								)}

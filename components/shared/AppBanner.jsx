@@ -2,8 +2,7 @@
 
 import useThemeSwitcher from '../../hooks/useThemeSwitcher';
 import { FiArrowDownCircle } from 'react-icons/fi';
-import developerLight from '../../public/developer.svg';
-import developerDark from '../../public/frontend-dev.svg';
+import developer from '../../public/developer.svg';
 import { motion } from 'framer-motion';
 import Image from 'next/image'
 
@@ -72,9 +71,8 @@ const AppBanner = () => {
 				className="w-full sm:w-2/3 text-right float-right mt-8 sm:mt-0"
 			>
 				<Image
-					src={
-						activeTheme === 'dark' ? developerLight : developerDark
-					}
+				className="w-full"
+				src={developer}
 					alt="Developer"
 				/>
 			</motion.div>
