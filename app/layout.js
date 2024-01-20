@@ -8,16 +8,13 @@ import "./globals.css";
 export const metadata = {
   title: "Pawel Jędrasik - Portfolio",
   description: "Frontend Web & Mobile developer.",
-  icons: {
-    icon: "./favicon.png",
-  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body>
         <div className=" bg-secondary-light dark:bg-primary-dark transition duration-300">
