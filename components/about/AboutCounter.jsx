@@ -5,7 +5,7 @@ import CounterItem from './CounterItem';
 
 const AboutCounter = () => {
 	useCountUp({ ref: 'experienceCounter', end: 6, duration: 3 });
-	useCountUp({ ref: 'projectsCounter', end: 77, duration: 3 });
+	useCountUp({ ref: 'projectsCounter', end: 84, duration: 3 });
 	useCountUp({ ref: 'companiesCounter', end: 4, duration: 3 });
 	useCountUp({ ref: 'productsCounter', end: 3, duration: 3 });
 

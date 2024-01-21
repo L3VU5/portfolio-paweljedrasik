@@ -1,13 +1,13 @@
 'use client';
 
-import ProjectGallery from '../../../components/projects/ProjectGallery';
 import ProjectHeader from '../../../components/projects/ProjectHeader';
 import ProjectInfo from '../../../components/projects/ProjectInfo';
 import ProjectRelatedProjects from '../../../components/projects/ProjectRelatedProjects';
 import { motion } from 'framer-motion';
 import { SingleProjectProvider } from '../../../context/SingleProjectContext';
 
-const ProjectSingle = () => {
+const ProjectSingle = ({params}) => {  
+	const {projectId} = params;
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -20,10 +20,9 @@ const ProjectSingle = () => {
 			className="container mx-auto mt-5 sm:mt-10"
 		>
 			<SingleProjectProvider>
-				<ProjectHeader />
-				<ProjectGallery />
-				<ProjectInfo />
-				<ProjectRelatedProjects />
+				<ProjectHeader projectId={projectId}/>
+				<ProjectInfo projectId={projectId} />
+				<ProjectRelatedProjects projectId={projectId} />
 			</SingleProjectProvider>
 		</motion.div>
 	);

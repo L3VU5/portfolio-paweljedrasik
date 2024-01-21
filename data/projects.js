@@ -1,11 +1,10 @@
 // Import images
 import WebImage1 from "../public/ww-marketing.jpg";
 import WebImage2 from "../public/pt_marketing.jpg";
+import WebImage3 from "../public/rr-marketing.jpg";
 import Portfolio from "../public/portfolio.jpg";
-import MobileImage1 from "../public/mobile-project-1.jpg";
-import MobileImage2 from "../public/ptm-marketing.jpg";
-import UIImage1 from "../public/ui-project-1.jpg";
-import UIImage2 from "../public/ui-project-2.jpg";
+import MobileImage1 from "../public/ptm-marketing.jpg";
+import MobileImage2 from "../public/Xpences-marketing.jpeg";
 
 export const projectsData = [
   {
@@ -13,23 +12,18 @@ export const projectsData = [
     title: "Portertrac",
     category: "Web Application",
     img: WebImage2,
-    ProjectHeader: {
-      title: "Project Management UI - From Context",
-      publishDate: "Jul 26, 2021",
-      tags: "UI / Frontend",
-    },
   },
   {
     id: 2,
     title: "Portertrac iOS & Android",
     category: "Mobile Application",
-    img: MobileImage2,
+    img: MobileImage1,
   },
   {
     id: 3,
     title: "RiskReady",
     category: "Web Application",
-    img: WebImage2,
+    img: WebImage3,
   },
   {
     id: 4,
@@ -42,5 +36,11 @@ export const projectsData = [
     title: "Portfolio App",
     category: "Web Application",
     img: Portfolio,
+  },
+  {
+    id: 6,
+    title: "Xpences (WIP)",
+    category: "Mobile Application",
+    img: MobileImage2,
   },
 ];

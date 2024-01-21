@@ -597,8 +597,17 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-10 {
   height: 2.5rem;
 }
+.h-64 {
+  height: 256px;
+}
+.w-72 {
+  width: 288px;
+}
 .max-h-screen {
   max-height: 100vh;
+}
+.max-w-screen {
+  max-width: 100vw;
 }
 .w-full {
   width: 100%;

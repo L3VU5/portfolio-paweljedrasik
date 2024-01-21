@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image'
 
-const ProjectSingle = ({ title, category, image }) => {
+const ProjectSingle = ({ title, category, image, projectId }) => {
 	return (
 			<motion.div
 				initial={{ opacity: 0 }}
@@ -15,7 +15,7 @@ const ProjectSingle = ({ title, category, image }) => {
 					delay: 0.15,
 				}}
 			>
-				<Link href="/projects/single-project" aria-label="Single Project">
+				<Link href={`/projects/${projectId}`}   aria-label="Single Project">
 					<div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">
 						<div>
 							<Image
