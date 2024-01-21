@@ -1,20 +1,26 @@
-import { FiPhone, FiMapPin, FiMail } from 'react-icons/fi';
+import { FiPhone, FiMapPin, FiMail, FiLinkedin } from 'react-icons/fi';
 
 const contacts = [
 	{
 		id: 1,
-		name: 'Your Address, Your City, Your Country',
+		name: 'Cracow, Poland',
 		icon: <FiMapPin />,
 	},
 	{
 		id: 2,
-		name: 'email@domain.com',
+		name: 'paweljedrasik@o2.pl',
 		icon: <FiMail />,
 	},
 	{
 		id: 3,
-		name: '555 8888 888',
+		name: '+48 794 988 272',
 		icon: <FiPhone />,
+	},
+	{
+		id: 4,
+        name: "paweljedrasik",
+        icon: <FiLinkedin />,
+		url: 'https://www.linkedin.com/in/paweljedrasik',
 	},
 ];
 
@@ -31,9 +37,15 @@ const ContactDetails = () => {
 							<i className="text-2xl text-gray-500 dark:text-gray-400 mr-4">
 								{contact.icon}
 							</i>
-							<span className="text-lg mb-4 text-ternary-dark dark:text-ternary-light">
+							{contact.url ? (
+								<a href={contact.url} className="text-lg mb-4 text-ternary-dark dark:text-ternary-light cursor-pointer">
 								{contact.name}
-							</span>
+								</a>
+							) : (
+								<span className="text-lg mb-4 text-ternary-dark dark:text-ternary-light ">
+									{contact.name}
+								</span>
+							)}
 						</li>
 					))}
 				</ul>

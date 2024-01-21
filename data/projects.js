@@ -1,15 +1,16 @@
 // Import images
-import WebImage1 from "../public/web-project-1.jpg";
-import WebImage2 from "../public/web-project-2.jpg";
+import WebImage1 from "../public/ww-marketing.jpg";
+import WebImage2 from "../public/pt_marketing.jpg";
+import Portfolio from "../public/portfolio.jpg";
 import MobileImage1 from "../public/mobile-project-1.jpg";
-import MobileImage2 from "../public/mobile-project-2.jpg";
+import MobileImage2 from "../public/ptm-marketing.jpg";
 import UIImage1 from "../public/ui-project-1.jpg";
 import UIImage2 from "../public/ui-project-2.jpg";
 
 export const projectsData = [
   {
     id: 1,
-    title: "Google Health Platform",
+    title: "Portertrac",
     category: "Web Application",
     img: WebImage2,
     ProjectHeader: {
@@ -20,32 +21,26 @@ export const projectsData = [
   },
   {
     id: 2,
-    title: "Phoenix Digital Agency",
+    title: "Portertrac iOS & Android",
     category: "Mobile Application",
     img: MobileImage2,
   },
   {
     id: 3,
-    title: "Project Management UI",
-    category: "UI/UX Design",
-    img: UIImage1,
+    title: "RiskReady",
+    category: "Web Application",
+    img: WebImage2,
   },
   {
     id: 4,
-    title: "Cloud Storage Platform",
-    category: "UI/UX Design",
-    img: UIImage2,
+    title: "Weather Wear",
+    category: "Web Application",
+    img: WebImage1,
   },
   {
     id: 5,
-    title: "React Social App",
-    category: "Mobile Application",
-    img: MobileImage1,
-  },
-  {
-    id: 6,
-    title: "Apple Design System",
+    title: "Portfolio App",
     category: "Web Application",
-    img: WebImage1,
+    img: Portfolio,
   },
 ];
