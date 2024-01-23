@@ -9,15 +9,18 @@ const ProjectThumbnailGallery = ({projectId}) => {
 	const { singleProjectData } = useContext(SingleProjectContext);
 	const project = singleProjectData[projectId];
 	const [showModal, setShowModal] = useState(false);
+	const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 	const images = project?.ProjectImages?.map(({img}) => ({original: img.src}))
 
-	function showHireMeModal() {
+	function showHireMeModal(index) {
 		if (!showModal) {
+			setSelectedImageIndex(index);
 			document
 				.getElementsByTagName('html')[0]
 				.classList.add('overflow-y-hidden');
 			setShowModal(true);
 		} else {
+			setSelectedImageIndex(0);
 			document
 				.getElementsByTagName('html')[0]
 				.classList.remove('overflow-y-hidden');
@@ -32,14 +35,14 @@ const ProjectThumbnailGallery = ({projectId}) => {
 			</p>
 
 			<div className="grid grid-cols-1 sm:grid-cols-4 gap-10">
-				{project.ProjectImages?.map((project) => {
+				{project.ProjectImages?.map((project, index) => {
 					return (
 						<div key={project.id} className='h-64 w-72 rounded-xl cursor-pointer flex items-center justify-center overflow-hidden dark:bg-ternary-dark'>
 							<Image
 								height={254}
 								src={project.img}
 								alt={project.title}
-								onClick={showHireMeModal}
+								onClick={() => showHireMeModal(index)}
 								/>
 						</div>
 					);
@@ -49,6 +52,7 @@ const ProjectThumbnailGallery = ({projectId}) => {
 				<div>
 					{showModal ? (
 						<GalleryModal
+							startIndex={selectedImageIndex}
 							images={images}
 							onClose={showHireMeModal}
 							title={`${project.ProjectHeader.title} gallery`}

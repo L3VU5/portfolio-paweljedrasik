@@ -5,7 +5,7 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { FiX } from 'react-icons/fi';
 
-const GalleryModal = ({ onClose, images, title }) => {
+const GalleryModal = ({ onClose, images, title, startIndex }) => {
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -32,7 +32,7 @@ const GalleryModal = ({ onClose, images, title }) => {
 								<FiX className="text-3xl" />
 							</button>
 						</div>
-						<ImageGallery items={images} showPlayButton={false} showBullets />
+						<ImageGallery items={images} startIndex={startIndex} showPlayButton={false} showBullets />
 					</div>
 				</div>
 			</main>
