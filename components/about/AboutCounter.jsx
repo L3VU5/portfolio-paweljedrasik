@@ -3,10 +3,12 @@
 import { useCountUp } from 'react-countup';
 import CounterItem from './CounterItem';
 
+const technologies = ['JavaScript', 'TypeScript', 'React', 'React Native', 'iOS', 'Android', 'Linux', 'C++', 'Docker', 'AngularJS', 'HTML', 'CSS', 'SCSS', 'JSON', 'REST', 'Ajax', 'Git', 'GitHub', 'GitLab', 'npm', 'jQuery', 'Figma', 'MUI', 'Tailwind CSS', 'NextUI', 'Styled Components', 'NodeJS', 'ExpressJS', 'NextJS', 'MongoDB', 'GraphQL', 'Figma', 'Jest', 'Puppeteer', 'ESLint', 'Lodash', 'Redux', 'Redux Saga', 'Azure DevOps', 'Framer Motion', 'Firebase', 'SignalR', 'AzureSSO', 'RWD', 'OOP', 'MVC', 'Flux', 'Flipper', 'Android Studio', 'Xcode', 'MacOS', 'Vercel', 'TeamCity', 'Visual Studio', 'NFC', 'QR', 'Webpack', 'Babel', 'Husky', 'Prettier',' Axios', 'Moment JS', 'i18', 'Match Sorter', 'PropTypes', 'Reselect', 'Codemagic', 'TestFlight', 'CI/CD', 'Watchman', 'Metro', 'Google Play Console', 'App Store Connect', 'Fork'];
+
 const AboutCounter = () => {
 	useCountUp({ ref: 'experienceCounter', end: 6, duration: 3 });
 	useCountUp({ ref: 'projectsCounter', end: 84, duration: 3 });
-	useCountUp({ ref: 'companiesCounter', end: 4, duration: 3 });
+	useCountUp({ ref: 'technologiesCounter', end: technologies.length, duration: 3 });
 	useCountUp({ ref: 'productsCounter', end: 3, duration: 3 });
 
 	return (
@@ -18,8 +20,8 @@ const AboutCounter = () => {
 					measurement="+"
 				/>				
 				<CounterItem
-					title="Companies worked in"
-					counter={<span id="companiesCounter" />}
+					title="Technologies used"
+					counter={<span id="technologiesCounter" />}
 					measurement=""
 				/>			
 				<CounterItem

@@ -1,9 +1,11 @@
 "use client";
 
 import { FiArrowDownCircle } from 'react-icons/fi';
-import developer from '../../public/developer.svg';
 import { motion } from 'framer-motion';
 import Image from 'next/image'
+import { TypeAnimation } from 'react-type-animation';
+
+import developer from '../../public/developer.svg';
 
 const AppBanner = () => {
 
@@ -35,9 +37,25 @@ const AppBanner = () => {
 						duration: 0.9,
 						delay: 0.2,
 					}}
-					className="font-general-medium mt-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center sm:text-left leading-normal text-gray-500 dark:text-gray-200"
+					className=" mt-4"
 				>
-					A Frontend Web & Mobile Developer.
+					<TypeAnimation 
+					preRenderFirstString
+					className="font-general-medium text-lg md:text-xl lg:text-2xl xl:text-3xl text-center sm:text-left leading-normal text-gray-500 dark:text-gray-200"
+					sequence={[
+						' A Frontend Developer.',
+						2000 , 
+						' A React Expert.',
+						1500,
+						' A Mobile Software Developer.',
+						1500,
+						' A JavaScript Fullstack Developer.',
+						1500,
+					]}
+					speed={30}
+					deletionSpeed={60}
+					repeat={Infinity}
+					/>
 				</motion.p>
 				<motion.div
 					initial={{ opacity: 0 }}

@@ -2,7 +2,7 @@
 
 import ProjectHeader from '../../../components/projects/ProjectHeader';
 import ProjectInfo from '../../../components/projects/ProjectInfo';
-import ProjectRelatedProjects from '../../../components/projects/ProjectRelatedProjects';
+import ProjectThumbnailGallery from '../../../components/projects/ProjectThumbnailGallery';
 import { motion } from 'framer-motion';
 import { SingleProjectProvider } from '../../../context/SingleProjectContext';
 
@@ -22,7 +22,7 @@ const ProjectSingle = ({params}) => {
 			<SingleProjectProvider>
 				<ProjectHeader projectId={projectId}/>
 				<ProjectInfo projectId={projectId} />
-				<ProjectRelatedProjects projectId={projectId} />
+				<ProjectThumbnailGallery projectId={projectId} />
 			</SingleProjectProvider>
 		</motion.div>
 	);

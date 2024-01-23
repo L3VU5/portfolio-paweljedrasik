@@ -4,10 +4,15 @@ Welcome to my portfolio app! This application showcases my skills, projects, and
 
 ## Table of Contents
 
+- [Live App](#live-app)
 - [Setup](#setup)
 - [About Me](#about-me)
 - [Technologies Used](#technologies-used)
 - [Contact](#contact)
+
+## Live App
+
+https://www.pawel-jedrasik.me/
 
 ## Setup
 
@@ -20,9 +25,11 @@ To run this portfolio app locally, follow these steps:
 
 ## About Me
 
-I'm a passionate front-end developer with industry experience building web and mobile applications. I like to experiment with new technologies and frameworks to improve my skills.
+🚀 Passionate Software Developer from Kraków with 6+ years of industry experience in designing and developing dynamic web and mobile applications.
 
-Specialized in JavaScript, experienced in working with React, React Native and AngularJS.
+💻 Enthusiastic about experimenting with the newest technologies and frameworks to improve my skill set.
+
+💡 Specialized in JavaScript, with hands-on experience in building impactful solutions using React, React Native, and AngularJS.
 
 ## Technologies Used
 

@@ -367,6 +367,7 @@ export const singleProjectData = {
     ProjectInfo: {
       ClientHeading: "Repository",
       RepoUrl: "https://github.com/L3VU5/weather-wear",
+      LiveUrl: "https://weather-wear.xyz",
       ObjectivesHeading: "Product",
       ObjectivesDetails:
         "If you're constantly checking the weather, because you don't know what to wear outside again - this app is for you! Select your location, outfit type, and you'll get your suggestions!",
