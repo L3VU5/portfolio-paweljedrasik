@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^14.4.3",
     "framer-motion": "^10.18.0",
     "install": "^0.13.0",
+    "match-sorter": "^6.3.3",
     "next": "14.0.4",
     "npm": "^10.3.0",
     "postcss-cli": "^10.1.0",

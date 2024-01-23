@@ -2,6 +2,7 @@
 
 import { useState, createContext } from 'react';
 import { projectsData } from '../data/projects';
+import {matchSorter} from 'match-sorter';
 
 // Create projects context
 export const ProjectsContext = createContext();
@@ -13,16 +14,7 @@ export const ProjectsProvider = (props) => {
 	const [selectProject, setSelectProject] = useState('');
 
 	// Search projects by project title
-	const searchProjectsByTitle = projects.filter((item) => {
-		const result = item.title
-			.toLowerCase()
-			.includes(searchProject.toLowerCase())
-			? item
-			: searchProject === ''
-			? item
-			: '';
-		return result;
-	});
+	const searchProjectsByTitle = searchProject === '' ? projects : matchSorter(projects, searchProject, {keys: ['title', 'category']});
 
 	// Select projects by project category
 	const selectProjectsByCategory = projects.filter((item) => {
