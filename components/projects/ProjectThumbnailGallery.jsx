@@ -34,7 +34,7 @@ const ProjectThumbnailGallery = ({projectId}) => {
 				Gallery
 			</p>
 
-			<div className="grid grid-cols-1 sm:grid-cols-4 gap-10">
+			<div className="flex gap-10 flex-wrap justify-center">
 				{project.ProjectImages?.map((project, index) => {
 					return (
 						<div key={project.id} className='h-64 w-72 rounded-xl cursor-pointer flex items-center justify-center overflow-hidden dark:bg-ternary-dark'>

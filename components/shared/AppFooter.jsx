@@ -9,7 +9,7 @@ const socialLinks = [
 	{
 		id: 1,
 		icon: <FiGlobe />,
-		url: 'https://portfolio-paweljedrasik.vercel.app/',
+		url: 'https://pawel-jedrasik.me/',
 	},
 	{
 		id: 2,
