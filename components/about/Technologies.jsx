@@ -80,8 +80,7 @@ const ProjectsGrid = () => {
 			<div className="flex flex-wrap mt-6">
 				{ searchTechByTitle.map((tech) => (
 						<div key={tech} className="font-general-medium m-1
-							pl-3
-							pr-1
+							px-3
 							sm:px-4
 							py-2
 							border 

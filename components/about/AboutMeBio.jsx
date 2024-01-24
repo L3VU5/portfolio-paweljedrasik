@@ -13,7 +13,7 @@ const AboutMeBio = () => {
 				<Image src={profileImage} className="rounded-lg w-96" alt="" />
 			</div>
 			<div className="font-general-regular w-full sm:w-3/4 text-left">
-				<div className={'mb-4'}>
+				<div className="mb-4 h-20 sm:h-24 lg:h-20 xl:h-auto">
 					<span className="text-ternary-dark dark:text-ternary-light text-3xl">
 						Hi, I'm Paweł Jędrasik. 
 					</span>

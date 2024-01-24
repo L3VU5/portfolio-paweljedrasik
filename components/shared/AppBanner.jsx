@@ -37,24 +37,24 @@ const AppBanner = () => {
 						duration: 0.9,
 						delay: 0.2,
 					}}
-					className=" mt-4"
+					className="text-center sm:text-left mt-4"
 				>
 					<TypeAnimation 
-					preRenderFirstString
-					className="font-general-medium text-lg md:text-xl lg:text-2xl xl:text-3xl text-center sm:text-left leading-normal text-gray-500 dark:text-gray-200"
-					sequence={[
-						' A Frontend Developer.',
-						2000 , 
-						' A React Expert.',
-						1500,
-						' A Mobile Software Developer.',
-						1500,
-						' A JavaScript Fullstack Developer.',
-						1500,
-					]}
-					speed={30}
-					deletionSpeed={60}
-					repeat={Infinity}
+						preRenderFirstString
+						className="font-general-medium text-lg md:text-xl lg:text-2xl xl:text-3xl leading-normal text-gray-500 dark:text-gray-200"
+						sequence={[
+							' A Frontend Developer.',
+							2000 , 
+							' A React Expert.',
+							1500,
+							' A Mobile Software Developer.',
+							1500,
+							' A JavaScript Fullstack Developer.',
+							1500,
+						]}
+						speed={30}
+						deletionSpeed={60}
+						repeat={Infinity}
 					/>
 				</motion.p>
 				<motion.div
