@@ -12,9 +12,6 @@ export const technologiesData = [
   // Mobile Development
   "iOS",
   "Android",
-  "React Native",
-  "Android Studio",
-  "Xcode",
 
   // Web Technologies
   "HTML5",
