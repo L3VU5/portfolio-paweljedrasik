@@ -1465,6 +1465,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:h-auto {
     height: auto;
   }
+  .md\:h-16 {
+    height: 4rem;
+  }
 }
 @media (min-width: 1024px) {
   .lg\:mt-10 {
