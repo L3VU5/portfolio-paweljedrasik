@@ -5,6 +5,8 @@ import WebImage3 from "../public/rr-marketing.jpg";
 import Portfolio from "../public/portfolio.jpg";
 import MobileImage1 from "../public/ptm-marketing.jpg";
 import MobileImage2 from "../public/Xpences-marketing.jpeg";
+import GitHubSearch from "../public/ghac-marketing.jpg";
+import HPMinifig from "../public/hpmf-marketing.jpg";
 
 export const projectsData = [
   {
@@ -30,6 +32,18 @@ export const projectsData = [
     title: "Weather Wear",
     category: "Web Application",
     img: WebImage1,
+  },
+  {
+    id: 8,
+    title: "Harry Potter Minifigs",
+    category: "Mobile Application",
+    img: HPMinifig,
+  },
+  {
+    id: 7,
+    title: "GitHub AutoComplete Search",
+    category: "Web Application",
+    img: GitHubSearch,
   },
   {
     id: 5,

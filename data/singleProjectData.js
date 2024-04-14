@@ -25,6 +25,14 @@ import WwMarketing from "../public/ww-marketing.jpg";
 import WwWeb1 from "../public/ww1.png";
 import WwWeb2 from "../public/ww2.png";
 import WwWeb3 from "../public/ww3.png";
+import GhacMarketing from "../public/ghac-marketing.jpg";
+import Ghac1 from "../public/ghac1.png";
+import Ghac2 from "../public/ghac2.png";
+import HpmfMarketing from "../public/hpmf-marketing.jpg";
+import Hpmf1 from "../public/Hpmf1.png";
+import Hpmf2 from "../public/Hpmf2.png";
+import Hpmf3 from "../public/Hpmf3.png";
+import Hpmf4 from "../public/Hpmf4.png";
 import Portfolio from "../public/portfolio.jpg";
 import XpMarketing from "../public/Xpences-marketing.jpeg";
 
@@ -486,6 +494,129 @@ export const singleProjectData = {
         {
           id: 2,
           details: "Work In Progress...",
+        },
+      ],
+    },
+  },
+  7: {
+    ProjectHeader: {
+      title: "GitHub AutoComplete Search Web App",
+      publishDate: "March, 2024",
+      tags: "Frontend / UI / Architecture",
+      position: "Creator",
+    },
+    ProjectImages: [
+      {
+        id: 0,
+        title: "GitHub AutoComplete marketing",
+        img: GhacMarketing,
+      },
+      {
+        id: 1,
+        title: "GitHub AutoComplete marketing",
+        img: Ghac1,
+      },
+      {
+        id: 2,
+        title: "GitHub AutoComplete marketing",
+        img: Ghac2,
+      },
+    ],
+    ProjectInfo: {
+      ClientHeading: "Repository",
+      RepoUrl: "https://github.com/L3VU5/GitHub-Autocomplete-Search",
+      ObjectivesHeading: "Product",
+      ObjectivesDetails:
+        "Showcase of an AutoComplete component. In this project it's using the GitHub API to search for matching Repositories and Users.",
+      Technologies: [
+        {
+          title: "Tools & Technologies",
+          techs: [
+            "JavaScript",
+            "TypeScript",
+            "NextJS",
+            "React",
+            "Vercel",
+            "Tailwind CSS",
+            "RWD",
+            "Jest",
+            "React Testing Library",
+            "GraphQL",
+            "Apollo",
+            "Lodash",
+            "GitHub API",
+          ],
+        },
+      ],
+      ProjectDetailsHeading: "My role",
+      ProjectDetails: [
+        {
+          id: 1,
+          details: "Design, Development, Deployment.",
+        },
+      ],
+    },
+  },
+  8: {
+    ProjectHeader: {
+      title: "LEGO Harry Potter Minifigs Mobile App",
+      publishDate: "April, 2024",
+      tags: "Frontend / UI / Architecture",
+      position: "Creator",
+    },
+    ProjectImages: [
+      {
+        id: 0,
+        title: "Harry Potter Minifig marketing",
+        img: HpmfMarketing,
+      },
+      {
+        id: 1,
+        title: "Harry Potter Minifig marketing",
+        img: Hpmf1,
+      },
+      {
+        id: 2,
+        title: "Harry Potter Minifig marketing",
+        img: Hpmf2,
+      },
+      {
+        id: 3,
+        title: "Harry Potter Minifig marketing",
+        img: Hpmf3,
+      },
+      {
+        id: 4,
+        title: "Harry Potter Minifig marketing",
+        img: Hpmf4,
+      },
+    ],
+    ProjectInfo: {
+      ClientHeading: "Repository",
+      RepoUrl: "https://github.com/L3VU5/lego-harry-potter-minifig",
+      ObjectivesHeading: "Product",
+      ObjectivesDetails:
+        "Simple application, that allows user to draw five random LEGO Harry Potter Minifigs and select one of them for free. It utilizes Rebrickable API for data.",
+      Technologies: [
+        {
+          title: "Tools & Technologies",
+          techs: [
+            "React.js",
+            "React Native",
+            "React Navigation",
+            "TypeScript",
+            "Expo",
+            "TanStack Query",
+            "React Hook Form",
+            "Styled Components",
+          ],
+        },
+      ],
+      ProjectDetailsHeading: "My role",
+      ProjectDetails: [
+        {
+          id: 1,
+          details: "Design, Development, Deployment.",
         },
       ],
     },

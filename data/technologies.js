@@ -51,6 +51,8 @@ export const technologiesData = [
 
   // Testing
   "React Testing Library",
+  "React Hook Form",
+  "React Query (TanStack Query)",
   "Jest",
   "Puppeteer",
   "BrowserStack",
