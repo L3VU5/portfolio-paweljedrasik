@@ -29,10 +29,10 @@ import GhacMarketing from "../public/ghac-marketing.jpg";
 import Ghac1 from "../public/ghac1.png";
 import Ghac2 from "../public/ghac2.png";
 import HpmfMarketing from "../public/hpmf-marketing.jpg";
-import Hpmf1 from "../public/Hpmf1.png";
-import Hpmf2 from "../public/Hpmf2.png";
-import Hpmf3 from "../public/Hpmf3.png";
-import Hpmf4 from "../public/Hpmf4.png";
+import Hpmf1 from "../public/hpmf1.png";
+import Hpmf2 from "../public/hpmf2.png";
+import Hpmf3 from "../public/hpmf3.png";
+import Hpmf4 from "../public/hpmf4.png";
 import Portfolio from "../public/portfolio.jpg";
 import XpMarketing from "../public/Xpences-marketing.jpeg";
 
