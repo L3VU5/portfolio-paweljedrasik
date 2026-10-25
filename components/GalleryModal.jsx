@@ -1,41 +1,56 @@
 'use client';
 
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/image-gallery.css";
 import { FiX } from 'react-icons/fi';
 
 const GalleryModal = ({ onClose, images, title, startIndex }) => {
+	useEffect(() => {
+		const onKeyDown = (event) => {
+			if (event.key === 'Escape') onClose();
+		};
+		window.addEventListener('keydown', onKeyDown);
+		return () => window.removeEventListener('keydown', onKeyDown);
+	}, [onClose]);
+
 	return (
 		<motion.div
+			role="dialog"
+			aria-modal="true"
+			aria-label={title}
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
-			className="font-general-medium fixed inset-0 z-30 transition-all duration-500"
+			className="fixed inset-0 z-50 flex items-center justify-center p-4"
 		>
-			{/* Modal Backdrop */}
-			<div className="bg-filter bg-black bg-opacity-50 fixed inset-0 w-full h-full z-20"></div>
+			<button
+				type="button"
+				aria-label="Close gallery"
+				onClick={onClose}
+				className="absolute inset-0 h-full w-full cursor-default bg-ink/80 backdrop-blur-md"
+			/>
 
-			{/* Modal Content */}
-			<main className="flex flex-col items-center justify-center h-full w-full">
-				<div className="modal-wrapper flex items-center z-30">
-					<div className="modal mx-5 max-w-screen bg-secondary-light dark:bg-primary-dark max-h-screen shadow-lg flex-row rounded-lg relative">
-
-					<div className="modal-header flex justify-between gap-10 p-5 border-b border-ternary-light dark:border-ternary-dark">
-							<h5 className=" text-primary-dark dark:text-primary-light text-xl">
-								{title}
-							</h5>
-							<button
-								onClick={onClose}
-								className="px-4 font-bold text-primary-dark dark:text-primary-light"
-							>
-								<FiX className="text-3xl" />
-							</button>
-						</div>
-						<ImageGallery items={images} startIndex={startIndex} showPlayButton={false} showBullets />
-					</div>
+			<motion.div
+				initial={{ opacity: 0, y: 24, scale: 0.97 }}
+				animate={{ opacity: 1, y: 0, scale: 1 }}
+				transition={{ duration: 0.35, ease: 'easeOut' }}
+				className="tile relative w-full max-w-4xl !rounded-[2rem] bg-ink-900/95"
+			>
+				<div className="flex items-center justify-between gap-6 border-b border-white/10 px-6 py-4">
+					<h2 className="text-xl font-semibold tracking-tight text-white">{title}</h2>
+					<button
+						type="button"
+						onClick={onClose}
+						aria-label="Close"
+						className="rounded-full border border-white/10 p-2 text-xl text-white transition hover:border-brand-violet hover:bg-brand-violet/20"
+					>
+						<FiX aria-hidden="true" />
+					</button>
 				</div>
-			</main>
+				<ImageGallery items={images} startIndex={startIndex} showPlayButton={false} showBullets />
+			</motion.div>
 		</motion.div>
 	);
 };

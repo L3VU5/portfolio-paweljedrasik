@@ -4,63 +4,62 @@ import Image from 'next/image'
 import { useContext, useState } from 'react';
 import SingleProjectContext from '../../context/SingleProjectContext';
 import GalleryModal from '../GalleryModal';
+import Reveal from '../ui/Reveal';
+import useBodyScrollLock from '../../hooks/useBodyScrollLock';
 
 const ProjectThumbnailGallery = ({projectId}) => {
 	const { singleProjectData } = useContext(SingleProjectContext);
 	const project = singleProjectData[projectId];
-	const [showModal, setShowModal] = useState(false);
-	const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+	const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+	const isOpen = selectedImageIndex !== null;
+	useBodyScrollLock(isOpen);
 	const images = project?.ProjectImages?.map(({img}) => ({original: img.src}))
-
-	function showHireMeModal(index) {
-		if (!showModal) {
-			setSelectedImageIndex(index);
-			document
-				.getElementsByTagName('html')[0]
-				.classList.add('overflow-y-hidden');
-			setShowModal(true);
-		} else {
-			setSelectedImageIndex(0);
-			document
-				.getElementsByTagName('html')[0]
-				.classList.remove('overflow-y-hidden');
-			setShowModal(false);
-		}
-	}
+	// Desktop screenshots are landscape and need bigger tiles than phone screenshots.
+	const projectImages = project.ProjectImages ?? [];
+	const isWide = projectImages.filter(({ img }) => img.width > img.height).length > projectImages.length / 2;
 
 	return (
-		<div className="mt-10 pt-10 sm:pt-14 sm:mt-20 border-t-2 border-primary-light dark:border-secondary-dark">
-			<p className="font-general-regular text-primary-dark dark:text-primary-light text-3xl font-bold mb-10 sm:mb-14 text-left">
-				Gallery
-			</p>
+		<section className="mt-24" aria-label="Gallery">
+			<Reveal>
+				<h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Gallery</h2>
+			</Reveal>
 
-			<div className="flex gap-10 flex-wrap justify-center">
-				{project.ProjectImages?.map((project, index) => {
-					return (
-						<div key={project.id} className='h-64 w-72 rounded-xl cursor-pointer flex items-center justify-center overflow-hidden dark:bg-ternary-dark'>
+			<ul
+				className={`mt-10 grid gap-4 ${
+					isWide ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
+				}`}
+			>
+				{projectImages.map((image, index) => (
+					<li key={image.id}>
+						<button
+							type="button"
+							onClick={() => setSelectedImageIndex(index)}
+							aria-label={`Open ${image.title}`}
+							className={`tile tile-lift group relative block w-full p-2 ${
+								isWide ? 'aspect-[16/10]' : 'h-72'
+							}`}
+						>
 							<Image
-								height={254}
-								src={project.img}
-								alt={project.title}
-								onClick={() => showHireMeModal(index)}
-								/>
-						</div>
-					);
-				})}
-			</div>
-				{/* Hire me modal */}
-				<div>
-					{showModal ? (
-						<GalleryModal
-							startIndex={selectedImageIndex}
-							images={images}
-							onClose={showHireMeModal}
-							title={`${project.ProjectHeader.title} gallery`}
-						/>
-					) : null}
-					{showModal ? showHireMeModal : null}
-				</div>
-		</div>
+								src={image.img}
+								alt={image.title}
+								fill
+								sizes={isWide ? '(min-width: 640px) 40vw, 90vw' : '(min-width: 1024px) 22vw, (min-width: 768px) 30vw, 45vw'}
+								className="object-contain p-2 transition duration-500 group-hover:scale-105"
+							/>
+						</button>
+					</li>
+				))}
+			</ul>
+
+			{isOpen && (
+				<GalleryModal
+					startIndex={selectedImageIndex}
+					images={images}
+					onClose={() => setSelectedImageIndex(null)}
+					title={`${project.ProjectHeader.title} gallery`}
+				/>
+			)}
+		</section>
 	);
 };
 

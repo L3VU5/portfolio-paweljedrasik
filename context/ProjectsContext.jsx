@@ -1,39 +1,45 @@
 "use client";
 
-import { useState, createContext } from 'react';
+import { useMemo, useState, createContext } from 'react';
 import { projectsData } from '../data/projects';
-import {matchSorter} from 'match-sorter';
+import { matchSorter } from 'match-sorter';
 
 // Create projects context
 export const ProjectsContext = createContext();
 
+export const ALL_CATEGORIES = 'All';
+
 // Create the projects context provider
 export const ProjectsProvider = (props) => {
-	const [projects, setProjects] = useState(projectsData);
+	const [projects] = useState(projectsData);
 	const [searchProject, setSearchProject] = useState('');
-	const [selectProject, setSelectProject] = useState('');
+	const [category, setCategory] = useState(ALL_CATEGORIES);
 
-	// Search projects by project title
-	const searchProjectsByTitle = searchProject === '' ? projects : matchSorter(projects, searchProject, {keys: ['title', 'category']});
+	const categories = useMemo(
+		() => [ALL_CATEGORIES, ...new Set(projects.map((project) => project.category))],
+		[projects]
+	);
 
-	// Select projects by project category
-	const selectProjectsByCategory = projects.filter((item) => {
-		let category =
-			item.category.charAt(0).toUpperCase() + item.category.slice(1);
-		return selectProject === 'All Projects' || category.includes(selectProject);
-	});
+	// Category and title search combine, so a search never drops the active filter.
+	const visibleProjects = useMemo(() => {
+		const inCategory =
+			category === ALL_CATEGORIES
+				? projects
+				: projects.filter((project) => project.category === category);
+		return searchProject
+			? matchSorter(inCategory, searchProject, { keys: ['title', 'category'] })
+			: inCategory;
+	}, [projects, category, searchProject]);
 
 	return (
 		<ProjectsContext.Provider
 			value={{
-				projects,
-				setProjects,
+				categories,
+				category,
+				setCategory,
 				searchProject,
 				setSearchProject,
-				searchProjectsByTitle,
-				selectProject,
-				setSelectProject,
-				selectProjectsByCategory,
+				visibleProjects,
 			}}
 		>
 			{props.children}

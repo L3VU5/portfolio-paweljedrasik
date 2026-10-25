@@ -1,31 +1,31 @@
 "use client";
 
-import { useState, createContext } from 'react';
-import { technologiesData } from '../data/technologies';
-import {matchSorter} from 'match-sorter';
+import { useMemo, useState, createContext } from 'react';
+import { technologyGroups, technologiesData } from '../data/technologies';
+import { matchSorter } from 'match-sorter';
 
-// Create projects context
+// Create technologies context
 export const TechnologiesContext = createContext();
 
-// Create the projects context provider
+// Create the technologies context provider
 export const TechnologiesProvider = (props) => {
-	const [technologies, setTechnologies] = useState(technologiesData);
 	const [searchTechnology, setSearchTechnology] = useState('');
 
-	// Search tech by title
-	const searchTechByTitle = searchTechnology === '' ? technologies : matchSorter(technologies, searchTechnology);
-
-	const technologiesLength = technologies.length;
+	// Search inside every group and hide the groups left empty.
+	const groups = useMemo(() => {
+		if (searchTechnology === '') return technologyGroups;
+		return technologyGroups
+			.map((group) => ({ ...group, items: matchSorter(group.items, searchTechnology) }))
+			.filter((group) => group.items.length > 0);
+	}, [searchTechnology]);
 
 	return (
 		<TechnologiesContext.Provider
 			value={{
-				technologiesLength,
-				technologies,
-				setTechnologies,
+				technologiesLength: technologiesData.length,
 				searchTechnology,
 				setSearchTechnology,
-				searchTechByTitle,
+				groups,
 			}}
 		>
 			{props.children}

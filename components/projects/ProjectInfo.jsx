@@ -1,131 +1,114 @@
 'use client';
 
 import { useContext } from 'react';
+import Image from 'next/image';
+import { FiArrowUpRight } from 'react-icons/fi';
 import SingleProjectContext from '../../context/SingleProjectContext';
-import Image from 'next/image'
+import Reveal from '../ui/Reveal';
+
+const ExternalLink = ({ href, children }) => (
+	<a
+		href={href}
+		target="_blank"
+		rel="noopener noreferrer"
+		className="group inline-flex items-center gap-1.5 font-medium text-white underline decoration-white/20 underline-offset-4 transition hover:text-brand-teal hover:decoration-brand-teal"
+	>
+		{children}
+		<FiArrowUpRight aria-hidden="true" className="text-sm transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+	</a>
+);
+
+const Panel = ({ title, children }) => (
+	<div className="tile p-6">
+		<h2 className="text-sm font-medium text-muted">{title}</h2>
+		<div className="mt-4">{children}</div>
+	</div>
+);
 
 const ProjectInfo = ({projectId}) => {
 	const { singleProjectData } = useContext(SingleProjectContext);
 	const project = singleProjectData[projectId];
+	const info = project.ProjectInfo;
+	const cover = project.ProjectImages?.[0];
 
 	return (
-		<div className="block sm:flex gap-0 sm:gap-10 mt-14">
-			<div className="w-full sm:w-1/3 text-left">
+		<div className="mt-14 grid gap-10 lg:grid-cols-[0.9fr_1.4fr] lg:gap-14">
+			<Reveal className="space-y-5 lg:sticky lg:top-28 lg:self-start">
+				{cover && (
+					<div className="tile p-2">
+						<Image
+							src={cover.img}
+							alt={cover.title}
+							sizes="(min-width: 1024px) 30vw, 100vw"
+							priority
+							className="w-full rounded-[1.4rem]"
+						/>
+					</div>
+				)}
 
-				{/* Single project technologies */}
-				<div className="mb-7">
-					<Image
-						src={project.ProjectImages?.[0].img}
-						className="rounded-xl cursor-pointer shadow-lg sm:shadow-none"
-						alt={project.ProjectImages?.[0].title}
-					/>
-				</div>
-				<div className="mb-7">
-					<p className="font-general-regular text-2xl font-semibold text-ternary-dark dark:text-ternary-light mb-2">
-						{project.ProjectInfo?.Technologies[0].title}
-					</p>
-					<p className="font-general-regular text-primary-dark dark:text-ternary-light">
-						{project.ProjectInfo?.Technologies[0].techs.join(
-							', '
-						)}
-					</p>
-				</div>
-				{project.ProjectInfo?.LiveUrl && (<div className="mb-7">
-					<p className="font-general-regular text-2xl font-semibold text-ternary-dark dark:text-ternary-light mb-2">
-						Live URL
-					</p>
-					<p className="font-general-regular text-primary-dark dark:text-ternary-light">
-					<a
-						href={project.ProjectInfo?.LiveUrl}
-						className={ 'hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300'}
-						aria-label="Live url"
-					>
-						{project.ProjectInfo?.LiveUrl}
-					</a>
-					</p>
-				</div>)}
+				<Panel title={info.Technologies[0].title}>
+					<ul className="flex flex-wrap gap-2">
+						{info.Technologies[0].techs.map((tech) => (
+							<li key={tech} className="tag tag-hover">
+								{tech}
+							</li>
+						))}
+					</ul>
+				</Panel>
 
-				{/* Single project client details */}
+				{info.LiveUrl && (
+					<Panel title="Live URL">
+						<p className="break-all">
+							<ExternalLink href={info.LiveUrl}>{info.LiveUrl}</ExternalLink>
+						</p>
+					</Panel>
+				)}
 
-				<div className="mb-7">
-					<p className="font-general-regular text-2xl font-semibold text-secondary-dark dark:text-secondary-light mb-2">
-						{project.ProjectInfo?.ClientHeading}
-					</p>
-					<ul className="leading-loose">
-						{project.ProjectInfo?.CompanyInfo ? (
-							<>{project.ProjectInfo?.CompanyInfo.map(
-								(info) => {
-									return (
-										<li
-											className="font-general-regular text-ternary-dark dark:text-ternary-light"
-											key={info.id}
-										>
-											<span>{info.title}: </span>
-											{info.url ? (
-											<a
-												href={info.url}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300"
-											>
-												{info.details}
-											</a>) : (
-												<span>
-													{info.details}
-												</span>
-											)}
-										</li>
-									);
-								}
-							)}
-							</>
-						) : (
-							<>
-								<li className="font-general-regular text-ternary-dark dark:text-ternary-light">
-								<a
-									href={project.ProjectInfo?.RepoUrl}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300"
-									>
-									{project.ProjectInfo?.RepoUrl}
-									</a>
+				<Panel title={info.ClientHeading}>
+					<ul className="space-y-3">
+						{info.CompanyInfo ? (
+							info.CompanyInfo.map((entry) => (
+								<li key={entry.id} className="flex flex-wrap gap-x-3 text-sm">
+									<span className="w-24 shrink-0 text-muted">{entry.title}</span>
+									{entry.url ? (
+										<ExternalLink href={entry.url}>{entry.details}</ExternalLink>
+									) : (
+										<span className="text-slate-200">{entry.details}</span>
+									)}
 								</li>
-							</>
+							))
+						) : (
+							<li className="break-all text-sm">
+								<ExternalLink href={info.RepoUrl}>{info.RepoUrl}</ExternalLink>
+							</li>
 						)}
-						
+					</ul>
+				</Panel>
+			</Reveal>
+
+			<Reveal delay={0.1} className="space-y-12">
+				<div>
+					<h2 className="text-3xl font-semibold tracking-tight text-white">{info.ObjectivesHeading}</h2>
+					<p className="mt-4 text-lg leading-relaxed text-slate-300">{info.ObjectivesDetails}</p>
+				</div>
+
+				<div>
+					<h2 className="text-3xl font-semibold tracking-tight text-white">{info.ProjectDetailsHeading}</h2>
+					<ul className="mt-5 space-y-3">
+						{info.ProjectDetails?.map((details, index) => (
+							<li key={details.id} className="tile flex gap-5 p-5 sm:p-6">
+								<span
+									aria-hidden="true"
+									className="gradient-text text-2xl font-semibold tabular-nums"
+								>
+									{String(index + 1).padStart(2, '0')}
+								</span>
+								<span className="leading-relaxed text-slate-300">{details.details}</span>
+							</li>
+						))}
 					</ul>
 				</div>
-			</div>
-
-			{/*  Single project right section */}
-			<div className="w-full sm:w-2/3 text-left mt-10 sm:mt-0">
-
-				{/* Single project objectives */}
-				<div className="mb-7">
-				<p className="font-general-regular text-primary-dark dark:text-primary-light text-2xl font-bold mb-7">
-						{project.ProjectInfo?.ObjectivesHeading}
-					</p>
-					<p className="font-general-regular mb-5 text-lg text-ternary-dark dark:text-ternary-light">
-						{project.ProjectInfo?.ObjectivesDetails}
-					</p>
-				</div>
-			<div className="w-full text-left mt-10 sm:mt-0">
-				<p className="font-general-regular text-primary-dark dark:text-primary-light text-2xl font-bold mb-7">
-					{project.ProjectInfo?.ProjectDetailsHeading}
-				</p>
-				{project.ProjectInfo?.ProjectDetails?.map((details) => {
-					return (
-						<p
-							key={details.id}
-							className="font-general-regular mb-5 text-lg text-ternary-dark dark:text-ternary-light"
-						>
-							{details.details}
-						</p>
-					);
-				})}
-			</div>
-			</div>
+			</Reveal>
 		</div>
 	);
 };
