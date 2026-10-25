@@ -4,11 +4,17 @@ import WebImage2 from "../public/pt_marketing.jpg";
 import WebImage3 from "../public/rr-marketing.jpg";
 import Portfolio from "../public/portfolio.jpg";
 import MobileImage1 from "../public/ptm-marketing.jpg";
-import MobileImage2 from "../public/Xpences-marketing.jpeg";
 import GitHubSearch from "../public/ghac-marketing.jpg";
 import HPMinifig from "../public/hpmf-marketing.jpg";
+import Joiyn from "../public/joiyn-marketing.jpg";
 
 export const projectsData = [
+  {
+    id: 9,
+    title: "Joiyn",
+    category: "Mobile Application",
+    img: Joiyn,
+  },
   {
     id: 1,
     title: "Portertrac",
@@ -50,11 +56,5 @@ export const projectsData = [
     title: "Portfolio App",
     category: "Web Application",
     img: Portfolio,
-  },
-  {
-    id: 6,
-    title: "Xpences (WIP)",
-    category: "Mobile Application",
-    img: MobileImage2,
   },
 ];

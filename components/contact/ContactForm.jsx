@@ -2,8 +2,8 @@
 
 import Button from '../reusable/Button';
 import FormInput from '../reusable/FormInput';
-import emailjs from '@emailjs/browser';
-import {useState} from 'react';
+import { useState } from 'react';
+import { sendMessage, validateMessage } from '../../lib/sendMessage';
 
 
 const ContactForm = () => {
@@ -16,16 +16,29 @@ const ContactForm = () => {
 		}
 	}
 	const [formValues, setFormValues] = useState(getDefaultFormValues);
+	const [status, setStatus] = useState({ type: 'idle', text: '' });
 	const {name, email, subject, message} = formValues;
+	const isSending = status.type === 'sending';
 
-	function onEmailSend() {
-		emailjs.send('service_os9us0g', 'template_urgjtk9', formValues, 'RrPqwES20YCBweoTm')
-		.then((response) => {
-		   console.log('SUCCESS!', response.status, response.text);
-		}, (err) => {
-		   console.log('FAILED...', err);
-		});
-		setFormValues(getDefaultFormValues());
+	async function onEmailSend() {
+		const validationError = validateMessage(formValues);
+		if (validationError) {
+			setStatus({ type: 'error', text: validationError });
+			return;
+		}
+
+		setStatus({ type: 'sending', text: 'Sending...' });
+		try {
+			await sendMessage(formValues);
+			setFormValues(getDefaultFormValues());
+			setStatus({ type: 'success', text: 'Thanks! Your message has been sent.' });
+		} catch (err) {
+			console.error('Sending the message failed', err);
+			setStatus({
+				type: 'error',
+				text: 'Something went wrong. Please try again or use the email address next to this form.',
+			});
+		}
 	}
 
 	return (
@@ -90,11 +103,25 @@ const ContactForm = () => {
 
 					<div className="font-general-medium w-40 px-4 py-2.5 text-white text-center font-medium tracking-wider bg-indigo-500 hover:bg-indigo-600 focus:ring-1 focus:ring-indigo-900 rounded-lg mt-6 duration-500">
 						<Button
-							title="Send Message"
-							aria-label="Send Message"
+							title={isSending ? 'Sending...' : 'Send Message'}
 							onClick={onEmailSend}
+							disabled={isSending}
 						/>
 					</div>
+					{status.text && (
+						<p
+							role="status"
+							className={`mt-4 text-sm ${
+								status.type === 'error'
+									? 'text-red-500'
+									: status.type === 'success'
+										? 'text-green-600 dark:text-green-400'
+										: 'text-ternary-dark dark:text-ternary-light'
+							}`}
+						>
+							{status.text}
+						</p>
+					)}
 				</div>
 			</div>
 		</div>

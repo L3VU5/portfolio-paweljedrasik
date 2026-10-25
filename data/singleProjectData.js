@@ -34,7 +34,13 @@ import Hpmf2 from "../public/hpmf2.png";
 import Hpmf3 from "../public/hpmf3.png";
 import Hpmf4 from "../public/hpmf4.png";
 import Portfolio from "../public/portfolio.jpg";
-import XpMarketing from "../public/Xpences-marketing.jpeg";
+import JoiynMarketing from "../public/joiyn-marketing.jpg";
+import Joiyn1 from "../public/joiyn1.jpg";
+import Joiyn2 from "../public/joiyn2.jpg";
+import Joiyn3 from "../public/joiyn3.jpg";
+import Joiyn4 from "../public/joiyn4.jpg";
+import Joiyn5 from "../public/joiyn5.jpg";
+import Joiyn6 from "../public/joiyn6.jpg";
 
 export const singleProjectData = {
   1: {
@@ -42,7 +48,7 @@ export const singleProjectData = {
       title: "Portertrac Web App",
       publishDate: "Jul, 2021",
       tags: "UI / Frontend",
-      position: "Senior Frontend Developer",
+      position: "Frontend Developer",
     },
     ProjectImages: [
       {
@@ -123,12 +129,12 @@ export const singleProjectData = {
         {
           id: 1,
           details:
-            "Played a critical role as one of two frontend developers, completely rewriting a legacy, 20-year-old employee management desktop application into a high-performance web application.",
+            "Rewrote the 20-year-old Delphi desktop version of Portertrac as a real-time React web app.",
         },
         {
           id: 2,
           details:
-            "Utilized JavaScript, React, Redux, and Redux-Saga to create a cutting-edge product, leading to a notable increase in product sales and customer satisfaction.",
+            "Owned the whole frontend (JavaScript, React, Redux, Redux-Saga, SignalR) while other developers handled the backend and database.",
         },
       ],
     },
@@ -136,9 +142,9 @@ export const singleProjectData = {
   2: {
     ProjectHeader: {
       title: "Portertrac Mobile App",
-      publishDate: "June, 2022",
+      publishDate: "Aug, 2022",
       tags: "Mobile / UI / Architecture",
-      position: "Senior Software Developer",
+      position: "Lead Frontend Developer",
     },
     ProjectImages: [
       {
@@ -209,7 +215,7 @@ export const singleProjectData = {
         {
           title: "Tools & Technologies",
           techs: [
-            "JavaScript",
+            "TypeScript",
             "React Native",
             "Redux",
             "Redux-saga",
@@ -217,6 +223,9 @@ export const singleProjectData = {
             "React Native Reanimated",
             "SignalR",
             "Firebase",
+            "Azure",
+            "CI/CD",
+            "Figma",
           ],
         },
       ],
@@ -225,22 +234,17 @@ export const singleProjectData = {
         {
           id: 1,
           details:
-            "Designed and led the development of a new mobile app for task management on both iOS and Android platforms, utilizing React Native and incorporating modern UX principles. Successfully delivered a feature-rich mobile app, resulting in a substantial increase in user engagement and overall system efficiency.",
+            "Lead frontend developer of the Portertrac mobile app for iOS and Android, sold mainly to UK healthcare providers.",
         },
         {
           id: 2,
           details:
-            "Mentored and guided junior developers, fostering a collaborative team environment. Conducted comprehensive code reviews to ensure superior code quality, while also supervising seamless cooperation between the frontend and backend teams.",
+            "Took the app from zero to the stores: Figma design, React Native code, the CI/CD pipeline and App Store and Google Play releases.",
         },
         {
           id: 3,
           details:
-            "Proactively identified opportunities to enhance the web application, leading to the creation and successful implementation of new features that significantly improved user satisfaction.",
-        },
-        {
-          id: 4,
-          details:
-            "Demonstrated exceptional problem-solving skills in troubleshooting and resolving complex bugs and issues, ensuring a stable and reliable user experience.",
+            "Made all frontend design and architecture decisions. Mentored and supervised four other frontend developers in a team of 10.",
         },
       ],
     },
@@ -330,15 +334,17 @@ export const singleProjectData = {
         {
           id: 1,
           details:
-            "Integral in bug-fixing and development efforts, enhancing performance and usability.",
+            "Joined as a junior and grew to mid-level on RiskReady, a loss-prevention app for retail stores with audits, incident reports and a form builder.",
         },
         {
           id: 2,
-          details: "Creating new features.",
+          details:
+            "Owned the Watchlist feature, used to track people wanted for theft and fraud and to create linked reports.",
         },
         {
           id: 3,
-          details: "Creating E2E tests using Puppeteer.",
+          details:
+            "Automated the regression testing that a single QA tester used to do by hand, covering the whole app with Jest and Puppeteer. A full run dropped from 1-2 days to 10 minutes and bugs became rarer.",
         },
       ],
     },
@@ -442,58 +448,6 @@ export const singleProjectData = {
         {
           id: 1,
           details: "Idea, Development, Deployment.",
-        },
-      ],
-    },
-  },
-  6: {
-    ProjectHeader: {
-      title: "Xpences Web App (WIP)",
-      publishDate: "TBA",
-      tags: "Frontend / UI / Architecture",
-      position: "Creator",
-    },
-    ProjectImages: [
-      {
-        id: 0,
-        title: "Riskready marketing",
-        img: XpMarketing,
-      },
-    ],
-    ProjectInfo: {
-      ClientHeading: "Repository",
-      CompanyInfo: [
-        {
-          id: 1,
-          title: "WIP",
-          details: "Work In Progress",
-        },
-      ],
-      ObjectivesHeading: "Product",
-      ObjectivesDetails:
-        "Introducing Xpences – the go-to app for effortless expense management! Set monthly limits, gain quick insights with summary views, and track spending by detailed categories. With a sleek interface and user-friendly design, Xpences makes budgeting a breeze. Stay in control with real-time updates, all while ensuring your financial privacy is our top priority. Download now and take charge of your expenses effortlessly with Xpences!",
-      Technologies: [
-        {
-          title: "Tools & Technologies",
-          techs: [
-            "JavaScript",
-            "React Native",
-            "Redux",
-            "Redux-saga",
-            "Styled Components",
-            "React Native Reanimated",
-          ],
-        },
-      ],
-      ProjectDetailsHeading: "My role",
-      ProjectDetails: [
-        {
-          id: 1,
-          details: "Idea, Design, Development, Deployment.",
-        },
-        {
-          id: 2,
-          details: "Work In Progress...",
         },
       ],
     },
@@ -617,6 +571,119 @@ export const singleProjectData = {
         {
           id: 1,
           details: "Design, Development, Deployment.",
+        },
+      ],
+    },
+  },
+  9: {
+    ProjectHeader: {
+      title: "Joiyn Mobile App",
+      publishDate: "June, 2025",
+      tags: "Mobile / Fullstack / Architecture",
+      position: "Solo Developer",
+    },
+    ProjectImages: [
+      {
+        id: 0,
+        title: "Joiyn marketing",
+        img: JoiynMarketing,
+      },
+      {
+        id: 1,
+        title: "Joiyn sign-in screen",
+        img: Joiyn1,
+      },
+      {
+        id: 2,
+        title: "Joiyn interests screen",
+        img: Joiyn2,
+      },
+      {
+        id: 3,
+        title: "Joiyn matching events screen",
+        img: Joiyn3,
+      },
+      {
+        id: 4,
+        title: "Joiyn join event screen",
+        img: Joiyn4,
+      },
+      {
+        id: 5,
+        title: "Joiyn event details screen",
+        img: Joiyn5,
+      },
+      {
+        id: 6,
+        title: "Joiyn profile screen",
+        img: Joiyn6,
+      },
+    ],
+    ProjectInfo: {
+      ClientHeading: "Links",
+      CompanyInfo: [
+        {
+          id: 1,
+          title: "Website",
+          details: "joiyn.app",
+          url: "https://joiyn.app",
+        },
+        {
+          id: 2,
+          title: "App Store",
+          details: "Joiyn for iOS",
+          url: "https://apps.apple.com/app/id6773401520",
+        },
+        {
+          id: 3,
+          title: "Google Play",
+          details: "Joiyn for Android",
+          url: "https://play.google.com/store/apps/details?id=com.shirocoding.joiyn",
+        },
+      ],
+      ObjectivesHeading: "Product",
+      ObjectivesDetails:
+        "Joiyn is a social app for finding and joining local events by interest and city, with chat between the participants of each event. It is live in the App Store and Google Play.",
+      Technologies: [
+        {
+          title: "Tools & Technologies",
+          techs: [
+            "React Native",
+            "TypeScript",
+            "Expo",
+            "EAS",
+            "TanStack Query",
+            "AWS SAM",
+            "AWS Lambda",
+            "DynamoDB",
+            "Cognito",
+            "API Gateway",
+            "WebSockets",
+            "S3",
+            "CloudFront",
+            "GitHub Actions",
+            "Firebase (FCM)",
+            "Sentry",
+            "CloudWatch",
+          ],
+        },
+      ],
+      ProjectDetailsHeading: "My role",
+      ProjectDetails: [
+        {
+          id: 1,
+          details:
+            "Built and released the app alone, from the idea to the App Store and Google Play.",
+        },
+        {
+          id: 2,
+          details:
+            "Designed and run the whole stack: the React Native app talks to a serverless AWS backend with 65 Lambda functions, 9 DynamoDB tables, Cognito sign-in with Google and Apple, WebSocket chat and media on S3 and CloudFront.",
+        },
+        {
+          id: 3,
+          details:
+            "Handle CI/CD, store releases, push notifications and monitoring with Sentry and CloudWatch.",
         },
       ],
     },

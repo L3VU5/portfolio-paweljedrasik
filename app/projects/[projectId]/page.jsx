@@ -1,31 +1,25 @@
-'use client';
+import ProjectView from '../../../components/projects/ProjectView';
+import { singleProjectData } from '../../../data/singleProjectData';
 
-import ProjectHeader from '../../../components/projects/ProjectHeader';
-import ProjectInfo from '../../../components/projects/ProjectInfo';
-import ProjectThumbnailGallery from '../../../components/projects/ProjectThumbnailGallery';
-import { motion } from 'framer-motion';
-import { SingleProjectProvider } from '../../../context/SingleProjectContext';
+// Only the projects listed in the data exist; anything else is a 404.
+export const dynamicParams = false;
 
-const ProjectSingle = ({params}) => {  
-	const {projectId} = params;
-	return (
-		<motion.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1, delay: 1 }}
-			transition={{
-				ease: 'easeInOut',
-				duration: 0.6,
-				delay: 0.15,
-			}}
-			className="container mx-auto mt-5 sm:mt-10"
-		>
-			<SingleProjectProvider>
-				<ProjectHeader projectId={projectId}/>
-				<ProjectInfo projectId={projectId} />
-				<ProjectThumbnailGallery projectId={projectId} />
-			</SingleProjectProvider>
-		</motion.div>
-	);
+export function generateStaticParams() {
+	return Object.keys(singleProjectData).map((projectId) => ({ projectId }));
+}
+
+export async function generateMetadata({ params }) {
+	const { projectId } = await params;
+	const project = singleProjectData[projectId];
+	return {
+		title: project.ProjectHeader.title,
+		description: project.ProjectInfo.ObjectivesDetails,
+	};
+}
+
+const ProjectPage = async ({ params }) => {
+	const { projectId } = await params;
+	return <ProjectView projectId={projectId} />;
 };
 
-export default ProjectSingle;
+export default ProjectPage;

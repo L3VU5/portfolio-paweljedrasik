@@ -64,18 +64,13 @@ const ProjectInfo = ({projectId}) => {
 											{info.url ? (
 											<a
 												href={info.url}
-												className={
-													info.title === 'Website' ||
-													info.title === 'Phone'
-														? 'hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300'
-														: ''
-												}
-												aria-label="Project Website and Phone"
+												target="_blank"
+												rel="noopener noreferrer"
+												className="hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300"
 											>
 												{info.details}
 											</a>) : (
-												<span
-													aria-label="Project Website and Phone">
+												<span>
 													{info.details}
 												</span>
 											)}
@@ -89,8 +84,9 @@ const ProjectInfo = ({projectId}) => {
 								<li className="font-general-regular text-ternary-dark dark:text-ternary-light">
 								<a
 									href={project.ProjectInfo?.RepoUrl}
-									className={'hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300'}
-									aria-label="Project Website and Phone"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300"
 									>
 									{project.ProjectInfo?.RepoUrl}
 									</a>

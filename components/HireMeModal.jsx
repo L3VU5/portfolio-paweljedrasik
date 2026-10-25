@@ -1,16 +1,16 @@
 'use client';
 
-import emailjs from '@emailjs/browser';
-import {useState} from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiX } from 'react-icons/fi';
 import Button from './reusable/Button';
+import { sendMessage, validateMessage } from '../lib/sendMessage';
 
 const selectOptions = [
+	'Senior Full-Stack Developer',
 	'Senior Frontend Developer',
-	'JavaScript Fullstack Developer',
 	'Senior Mobile Developer',
-	'UI/UX Designer',
+	'AWS Serverless Developer',
 ];
 
 const HireMeModal = ({ onClose, onRequest }) => {
@@ -18,21 +18,32 @@ const HireMeModal = ({ onClose, onRequest }) => {
 		return {
 			name: '',
 			email: '',
-			subject:'Senior Frontend Developer',
+			subject:'Senior Full-Stack Developer',
 			message:'',
 		}
 	}
 	const [formValues, setFormValues] = useState(getDefaultFormValues);
+	const [errorText, setErrorText] = useState('');
+	const [isSending, setIsSending] = useState(false);
 	const {name, email, subject, message} = formValues;
 
-	function onEmailSend() {
-		emailjs.send('service_os9us0g', 'template_urgjtk9', formValues, 'RrPqwES20YCBweoTm')
-		.then((response) => {
-		   console.log('SUCCESS!', response.status, response.text);
-		}, (err) => {
-		   console.log('FAILED...', err);
-		});
-		onRequest();
+	async function onEmailSend() {
+		const validationError = validateMessage(formValues);
+		if (validationError) {
+			setErrorText(validationError);
+			return;
+		}
+
+		setErrorText('');
+		setIsSending(true);
+		try {
+			await sendMessage(formValues);
+			onRequest();
+		} catch (err) {
+			console.error('Sending the message failed', err);
+			setErrorText('Something went wrong. Please try again or use the email address on the Contact page.');
+			setIsSending(false);
+		}
 	}
 
 	return (
@@ -98,7 +109,6 @@ const HireMeModal = ({ onClose, onRequest }) => {
 										aria-label="Project Category"
 										onChange={e => setFormValues(prev => ({...prev, subject: e.target.value}))}
 										value={subject}
-										defaultValue='Senior Frontend Developer'
 									>
 										{selectOptions.map((option) => (
 											<option
@@ -127,6 +137,11 @@ const HireMeModal = ({ onClose, onRequest }) => {
 								</div>
 							</div>
 						</div>
+						{errorText && (
+							<p role="alert" className="px-8 text-sm text-red-500">
+								{errorText}
+							</p>
+						)}
 						<div className="modal-footer mt-2 sm:mt-0 py-5 px-8 border0-t flex justify-between">
 								<Button 
 									onClick={onClose}
@@ -147,7 +162,8 @@ const HireMeModal = ({ onClose, onRequest }) => {
 										rounded-md
 										focus:ring-1 focus:ring-indigo-900 duration-500"
 									onClick={onEmailSend}
-									title="Send" />
+									disabled={isSending}
+									title={isSending ? 'Sending...' : 'Send'} />
 						</div>
 					</div>
 				</div>

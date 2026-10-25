@@ -8,19 +8,10 @@ const useScrollToTop = () => {
 	const [showScroll, setShowScroll] = useState(false);
 
 	useEffect(() => {
-		window?.addEventListener('scroll', scrollToTop);
-		return function cleanup() {
-			window?.removeEventListener('scroll', scrollToTop);
-		};
-	});
-
-	const scrollToTop = () => {
-		if (!showScroll && window.pageYOffset > 400) {
-			setShowScroll(true);
-		} else if (showScroll && window.pageYOffset <= 400) {
-			setShowScroll(false);
-		}
-	};
+		const onScroll = () => setShowScroll(window.scrollY > 400);
+		window.addEventListener('scroll', onScroll, { passive: true });
+		return () => window.removeEventListener('scroll', onScroll);
+	}, []);
 
 	const backToTop = () => {
 		window.scrollTo({

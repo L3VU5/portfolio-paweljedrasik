@@ -4,13 +4,14 @@ import { useContext } from 'react';
 import { useCountUp } from 'react-countup';
 import CounterItem from './CounterItem';
 import { TechnologiesContext } from '../../context/TechnologiesContext';
+import { projectsData } from '../../data/projects';
 
 const AboutCounter = () => {
 	const { technologiesLength } = useContext(TechnologiesContext);
-	useCountUp({ ref: 'experienceCounter', end: 6, duration: 3 });
-	useCountUp({ ref: 'projectsCounter', end: 84, duration: 3 });
+	useCountUp({ ref: 'experienceCounter', end: 8, duration: 3 });
+	useCountUp({ ref: 'projectsCounter', end: projectsData.length, duration: 3 });
 	useCountUp({ ref: 'technologiesCounter', end: technologiesLength, duration: 3 });
-	useCountUp({ ref: 'productsCounter', end: 3, duration: 3 });
+	useCountUp({ ref: 'productsCounter', end: 4, duration: 3 });
 
 	return (
 		<div className="mt-10 sm:mt-20 bg-primary-light dark:bg-ternary-dark shadow-sm">
@@ -26,14 +27,14 @@ const AboutCounter = () => {
 					measurement=""
 				/>			
 				<CounterItem
-					title="Comercial products delivered"
+					title="Commercial products delivered"
 					counter={<span id="productsCounter" />}
 					measurement=""
 				/>
 				<CounterItem
-					title="Projects completed"
+					title="Projects showcased"
 					counter={<span id="projectsCounter" />}
-					measurement="%"
+					measurement=""
 				/>
 			</div>
 		</div>

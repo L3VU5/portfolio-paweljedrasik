@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css";
+import "react-image-gallery/styles/image-gallery.css";
 import { FiX } from 'react-icons/fi';
 
 const GalleryModal = ({ onClose, images, title, startIndex }) => {

@@ -1,6 +1,9 @@
+const path = require('path');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-}
+  // Pin the project root so Turbopack does not pick up lockfiles from parent folders.
+  turbopack: { root: path.join(__dirname) },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

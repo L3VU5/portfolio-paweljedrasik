@@ -4,18 +4,31 @@ import AppHeader from "../components/shared/AppHeader";
 import UseScrollToTop from "../hooks/useScrollToTop";
 import "../css/App.css";
 import "./globals.css";
+import { siteName, siteUrl } from "../lib/site";
+
+const description =
+  "Senior Full-Stack Developer with 8+ years of experience. React, TypeScript, React Native and AWS serverless.";
 
 export const metadata = {
-  title: "Pawel Jędrasik - Portfolio",
-  description: "Frontend Web & Mobile developer.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${siteName} - Senior Full-Stack Developer`,
+    template: `%s | ${siteName}`,
+  },
+  description,
+  openGraph: {
+    title: `${siteName} - Senior Full-Stack Developer`,
+    description,
+    url: siteUrl,
+    siteName: `${siteName} - Portfolio`,
+    images: [{ url: "/portfolio.jpg", width: 780, height: 680 }],
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-      </head>
       <body>
         <div className=" bg-secondary-light dark:bg-primary-dark transition duration-300">
           <ScrollToTop />

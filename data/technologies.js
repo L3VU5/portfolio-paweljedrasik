@@ -7,6 +7,10 @@ export const technologiesData = [
   // Frontend Frameworks and Libraries
   "React",
   "React Native",
+  "Expo",
+  "EAS",
+  "React Navigation",
+  "Reanimated",
   "AngularJS",
 
   // Mobile Development
@@ -42,9 +46,23 @@ export const technologiesData = [
   // Server-side Technologies
   "NodeJS",
   "ExpressJS",
+  "AWS Lambda",
+  "AWS SAM",
+  "API Gateway",
+  "Cognito",
+  "SQS",
+  "SNS",
+  "SES",
+  "S3",
+  "CloudFront",
+  "CloudWatch",
+  "X-Ray",
+  "WebSockets",
+  "PHP",
 
   // Databases
   "MongoDB",
+  "DynamoDB",
 
   // GraphQL
   "GraphQL",
@@ -53,13 +71,21 @@ export const technologiesData = [
   "React Testing Library",
   "React Hook Form",
   "React Query (TanStack Query)",
+  "Jotai",
   "Jest",
+  "Vitest",
+  "MSW",
+  "Cypress",
+  "SonarCloud",
+  "Yup",
   "Puppeteer",
   "BrowserStack",
 
   // CI/CD
   "Azure DevOps",
   "Codemagic",
+  "GitHub Actions",
+  "Bitbucket Pipelines",
   "TestFlight",
   "CI/CD",
 
@@ -71,7 +97,6 @@ export const technologiesData = [
   "Prettier",
   "Axios",
   "Moment JS",
-  "i18",
   "Match Sorter",
   "PropTypes",
   "Reselect",
@@ -101,6 +126,14 @@ export const technologiesData = [
   "Xcode",
   "MacOS",
   "Vercel",
+  "Vite",
+  "Datadog RUM",
+  "Sentry",
+  "Snowplow",
+  "Localazy",
+  "i18next",
+  "Claude Code",
+  "Jira",
   "TeamCity",
   "Visual Studio",
 
