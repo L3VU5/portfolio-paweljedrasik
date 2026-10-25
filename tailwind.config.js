@@ -10,7 +10,6 @@ module.exports = {
           DEFAULT: "#05060f",
           900: "#090b18",
           800: "#0e1122",
-          700: "#161a33",
         },
         brand: {
           violet: "#8b5cf6",
@@ -19,7 +18,6 @@ module.exports = {
         },
         warm: {
           amber: "#ffb347",
-          coral: "#ff7a59",
         },
         muted: "#9aa0c0",
       },

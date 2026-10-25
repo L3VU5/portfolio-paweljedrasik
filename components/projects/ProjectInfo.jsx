@@ -1,9 +1,8 @@
 'use client';
 
-import { useContext } from 'react';
 import Image from 'next/image';
 import { FiArrowUpRight } from 'react-icons/fi';
-import SingleProjectContext from '../../context/SingleProjectContext';
+import { singleProjectData } from '../../data/singleProjectData';
 import Reveal from '../ui/Reveal';
 
 const ExternalLink = ({ href, children }) => (
@@ -26,7 +25,6 @@ const Panel = ({ title, children }) => (
 );
 
 const ProjectInfo = ({projectId}) => {
-	const { singleProjectData } = useContext(SingleProjectContext);
 	const project = singleProjectData[projectId];
 	const info = project.ProjectInfo;
 	const cover = project.ProjectImages?.[0];

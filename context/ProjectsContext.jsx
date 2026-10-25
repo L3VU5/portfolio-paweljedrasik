@@ -7,11 +7,11 @@ import { matchSorter } from 'match-sorter';
 // Create projects context
 export const ProjectsContext = createContext();
 
-export const ALL_CATEGORIES = 'All';
+const ALL_CATEGORIES = 'All';
 
 // Create the projects context provider
 export const ProjectsProvider = (props) => {
-	const [projects] = useState(projectsData);
+	const projects = projectsData;
 	const [searchProject, setSearchProject] = useState('');
 	const [category, setCategory] = useState(ALL_CATEGORIES);
 

@@ -1,14 +1,13 @@
 'use client';
 
 import Image from 'next/image'
-import { useContext, useState } from 'react';
-import SingleProjectContext from '../../context/SingleProjectContext';
+import { useState } from 'react';
+import { singleProjectData } from '../../data/singleProjectData';
 import GalleryModal from '../GalleryModal';
 import Reveal from '../ui/Reveal';
 import useBodyScrollLock from '../../hooks/useBodyScrollLock';
 
 const ProjectThumbnailGallery = ({projectId}) => {
-	const { singleProjectData } = useContext(SingleProjectContext);
 	const project = singleProjectData[projectId];
 	const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 	const isOpen = selectedImageIndex !== null;

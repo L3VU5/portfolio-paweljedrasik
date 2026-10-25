@@ -145,12 +145,6 @@
     color: transparent;
     @apply animate-shimmer;
   }
-  .gradient-text-warm {
-    background-image: linear-gradient(100deg, #ffb347, #ff7a59 55%, #ff5d8f);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
 
   /* ---------- Surfaces ---------- */
   .pill {

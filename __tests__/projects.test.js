@@ -1,3 +1,5 @@
+import { render, screen } from "@testing-library/react";
+import ProjectView from "../components/projects/ProjectView";
 import { projectsData } from "../data/projects";
 import { singleProjectData } from "../data/singleProjectData";
 import { validateMessage } from "../lib/sendMessage";
@@ -35,5 +37,19 @@ describe("validateMessage", () => {
 
   test("rejects a malformed email", () => {
     expect(validateMessage({ ...valid, email: "jane@" })).toMatch(/valid email/i);
+  });
+});
+
+describe("project page", () => {
+  test.each(Object.keys(singleProjectData))("renders project %s from its data", (projectId) => {
+    const { ProjectHeader, ProjectImages } = singleProjectData[projectId];
+    render(<ProjectView projectId={projectId} />);
+
+    expect(
+      screen.getByRole("heading", { level: 1, name: ProjectHeader.title })
+    ).toBeInTheDocument();
+    expect(screen.getByText(ProjectHeader.position)).toBeInTheDocument();
+    // The gallery opens every image, so there is one button per image.
+    expect(screen.getAllByRole("button", { name: /^Open / })).toHaveLength(ProjectImages.length);
   });
 });

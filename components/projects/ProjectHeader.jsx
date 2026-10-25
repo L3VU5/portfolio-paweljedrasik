@@ -1,12 +1,10 @@
 'use client';
 
-import { useContext } from 'react';
 import { FiClock, FiTag, FiUser } from 'react-icons/fi';
-import SingleProjectContext from '../../context/SingleProjectContext';
+import { singleProjectData } from '../../data/singleProjectData';
 import Reveal from '../ui/Reveal';
 
 const ProjectSingleHeader = ({projectId}) => {
-	const { singleProjectData } = useContext(SingleProjectContext);
 	const header = singleProjectData[projectId]?.ProjectHeader;
 	const meta = [
 		{ icon: FiClock, label: 'Started', value: header?.publishDate },

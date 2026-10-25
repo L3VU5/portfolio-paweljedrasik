@@ -5,7 +5,6 @@ import { FiArrowLeft } from 'react-icons/fi';
 import ProjectHeader from './ProjectHeader';
 import ProjectInfo from './ProjectInfo';
 import ProjectThumbnailGallery from './ProjectThumbnailGallery';
-import { SingleProjectProvider } from '../../context/SingleProjectContext';
 
 const ProjectView = ({ projectId }) => {
 	return (
@@ -15,11 +14,9 @@ const ProjectView = ({ projectId }) => {
 				All projects
 			</Link>
 
-			<SingleProjectProvider>
-				<ProjectHeader projectId={projectId} />
-				<ProjectInfo projectId={projectId} />
-				<ProjectThumbnailGallery projectId={projectId} />
-			</SingleProjectProvider>
+			<ProjectHeader projectId={projectId} />
+			<ProjectInfo projectId={projectId} />
+			<ProjectThumbnailGallery projectId={projectId} />
 		</div>
 	);
 };
