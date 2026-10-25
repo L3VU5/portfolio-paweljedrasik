@@ -8,6 +8,7 @@ import GitHubSearch from "../public/ghac-marketing.jpg";
 import HPMinifig from "../public/hpmf-marketing.jpg";
 import Joiyn from "../public/joiyn-marketing.jpg";
 import Smoobu from "../public/smoobu-marketing.jpg";
+import JoiynLanding from "../public/joiyn-lp-marketing.jpg";
 
 export const projectsData = [
   {
@@ -23,6 +24,12 @@ export const projectsData = [
     category: "Web Application",
     img: Smoobu,
     featured: true,
+  },
+  {
+    id: 11,
+    title: "Joiyn Landing Page",
+    category: "Web Application",
+    img: JoiynLanding,
   },
   {
     id: 1,

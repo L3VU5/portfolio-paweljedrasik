@@ -47,6 +47,13 @@ import Joiyn3 from "../public/joiyn3.jpg";
 import Joiyn4 from "../public/joiyn4.jpg";
 import Joiyn5 from "../public/joiyn5.jpg";
 import Joiyn6 from "../public/joiyn6.jpg";
+import JoiynLpMarketing from "../public/joiyn-lp-marketing.jpg";
+import JoiynLp1 from "../public/joiyn-lp1.jpg";
+import JoiynLp2 from "../public/joiyn-lp2.jpg";
+import JoiynLp3 from "../public/joiyn-lp3.jpg";
+import JoiynLp4 from "../public/joiyn-lp4.jpg";
+import JoiynLp5 from "../public/joiyn-lp5.jpg";
+import JoiynLp6 from "../public/joiyn-lp6.jpg";
 import SmoobuMarketing from "../public/smoobu-marketing.jpg";
 import Smoobu1 from "../public/smoobu1.png";
 import Smoobu2 from "../public/smoobu2.png";
@@ -655,6 +662,110 @@ export const singleProjectData = {
           id: 2,
           details:
             "Refreshed in 2026: Expo SDK 58 with React Native 0.88, a dark redesign, fixes in the random draw and the parts list, proper loading and error states, and tests.",
+        },
+      ],
+    },
+  },
+  11: {
+    ProjectHeader: {
+      title: "Joiyn Landing Page",
+      publishDate: "May, 2026",
+      tags: "Frontend / UI / i18n",
+      position: "Creator",
+    },
+    ProjectImages: [
+      {
+        id: 0,
+        title: "Joiyn landing page marketing",
+        img: JoiynLpMarketing,
+      },
+      {
+        id: 1,
+        title: "Joiyn landing page hero",
+        img: JoiynLp1,
+      },
+      {
+        id: 2,
+        title: "Joiyn landing page in Polish",
+        img: JoiynLp2,
+      },
+      {
+        id: 3,
+        title: "Joiyn landing page features",
+        img: JoiynLp3,
+      },
+      {
+        id: 4,
+        title: "Joiyn landing page app screenshots",
+        img: JoiynLp4,
+      },
+      {
+        id: 5,
+        title: "Joiyn landing page how it works",
+        img: JoiynLp5,
+      },
+      {
+        id: 6,
+        title: "Joiyn landing page on mobile",
+        img: JoiynLp6,
+      },
+    ],
+    ProjectInfo: {
+      ClientHeading: "Links",
+      CompanyInfo: [
+        {
+          id: 1,
+          title: "Live site",
+          details: "joiyn.app",
+          url: "https://joiyn.app",
+        },
+        {
+          id: 2,
+          title: "Repository",
+          details: "L3VU5/joiyn-landingpage",
+          url: "https://github.com/L3VU5/joiyn-landingpage",
+        },
+      ],
+      ObjectivesHeading: "Product",
+      ObjectivesDetails:
+        "The website of Joiyn, my events app: what the app does, screenshots, links to both stores and an English and Polish version. It also holds the pages the stores require and the files that let event invite links open the app.",
+      Technologies: [
+        {
+          title: "Tools & Technologies",
+          techs: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "RWD",
+            "i18n",
+            "SEO",
+            "Universal Links",
+            "Android App Links",
+            "GitHub Pages",
+          ],
+        },
+      ],
+      ProjectDetailsHeading: "My role",
+      ProjectDetails: [
+        {
+          id: 1,
+          details:
+            "Design, development and deployment on my own: plain HTML, CSS and a little JavaScript with no build step, in the brand colours and the Lexend font of the app.",
+        },
+        {
+          id: 2,
+          details:
+            "English and Polish versions with a language switch. The language is picked from the browser and remembered.",
+        },
+        {
+          id: 3,
+          details:
+            "Hosts the iOS and Android association files so event invite links open the app when it is installed, plus a 404 page that sends everyone else to the stores.",
+        },
+        {
+          id: 4,
+          details:
+            "Privacy policy, child safety, account deletion and support pages, as required for the App Store and Google Play review.",
         },
       ],
     },
