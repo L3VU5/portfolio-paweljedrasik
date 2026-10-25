@@ -22,18 +22,24 @@ import RrWeb4 from "../public/rrweb4.png";
 import RrWeb5 from "../public/rrweb5.gif";
 import RrWeb6 from "../public/rrweb6.gif";
 import WwMarketing from "../public/ww-marketing.jpg";
-import WwWeb1 from "../public/ww1.png";
-import WwWeb2 from "../public/ww2.png";
-import WwWeb3 from "../public/ww3.png";
+import WwWeb1 from "../public/ww1.jpg";
+import WwWeb2 from "../public/ww2.jpg";
+import WwWeb3 from "../public/ww3.jpg";
+import WwWeb4 from "../public/ww4.jpg";
 import GhacMarketing from "../public/ghac-marketing.jpg";
-import Ghac1 from "../public/ghac1.png";
-import Ghac2 from "../public/ghac2.png";
+import Ghac1 from "../public/ghac1.jpg";
+import Ghac2 from "../public/ghac2.jpg";
+import Ghac3 from "../public/ghac3.jpg";
+import Ghac4 from "../public/ghac4.jpg";
 import HpmfMarketing from "../public/hpmf-marketing.jpg";
-import Hpmf1 from "../public/hpmf1.png";
-import Hpmf2 from "../public/hpmf2.png";
-import Hpmf3 from "../public/hpmf3.png";
-import Hpmf4 from "../public/hpmf4.png";
+import Hpmf1 from "../public/hpmf1.jpg";
+import Hpmf2 from "../public/hpmf2.jpg";
+import Hpmf3 from "../public/hpmf3.jpg";
+import Hpmf4 from "../public/hpmf4.jpg";
 import Portfolio from "../public/portfolio.jpg";
+import Pf1 from "../public/pf1.jpg";
+import Pf2 from "../public/pf2.jpg";
+import Pf3 from "../public/pf3.jpg";
 import JoiynMarketing from "../public/joiyn-marketing.jpg";
 import Joiyn1 from "../public/joiyn1.jpg";
 import Joiyn2 from "../public/joiyn2.jpg";
@@ -365,43 +371,61 @@ export const singleProjectData = {
     ProjectImages: [
       {
         id: 0,
-        title: "Weather wear marketing",
+        title: "Weather Wear marketing",
         img: WwMarketing,
       },
       {
         id: 1,
-        title: "Weather wear marketing",
+        title: "Weather Wear on a sunny day",
         img: WwWeb1,
       },
       {
         id: 2,
-        title: "Weather wear screenshot",
+        title: "Weather Wear on a rainy day",
         img: WwWeb2,
       },
       {
         id: 3,
-        title: "Weather wear screenshot",
+        title: "Weather Wear in freezing weather",
         img: WwWeb3,
+      },
+      {
+        id: 4,
+        title: "Weather Wear on mobile",
+        img: WwWeb4,
       },
     ],
     ProjectInfo: {
-      ClientHeading: "Repository",
-      RepoUrl: "https://github.com/L3VU5/weather-wear",
-      LiveUrl: "https://weather-wear.xyz",
+      ClientHeading: "Links",
+      CompanyInfo: [
+        {
+          id: 1,
+          title: "Live demo",
+          details: "weather-wear on Vercel",
+          url: "https://weather-wear-paweljedrasiks-projects.vercel.app",
+        },
+        {
+          id: 2,
+          title: "Repository",
+          details: "L3VU5/weather-wear",
+          url: "https://github.com/L3VU5/weather-wear",
+        },
+      ],
       ObjectivesHeading: "Product",
       ObjectivesDetails:
-        "If you're constantly checking the weather, because you don't know what to wear outside again - this app is for you! Select your location, outfit type, and you'll get your suggestions!",
+        "If you keep checking the weather because you never know what to wear, this app is for you. Search for a city or use your location, and you get the current weather and an outfit to match it, for men or women.",
       Technologies: [
         {
           title: "Tools & Technologies",
           techs: [
-            "JavaScript",
+            "TypeScript",
             "NextJS",
             "React",
-            "Vercel",
-            "NextUI",
             "Tailwind CSS",
-            "Framer Motion",
+            "Open-Meteo API",
+            "Jest",
+            "React Testing Library",
+            "Vercel",
             "RWD",
           ],
         },
@@ -410,7 +434,12 @@ export const singleProjectData = {
       ProjectDetails: [
         {
           id: 1,
-          details: "Idea, Design, Development, Deployment.",
+          details: "Idea, design, development and deployment.",
+        },
+        {
+          id: 2,
+          details:
+            "Refreshed in 2026: Next.js 16 and React 19, no API keys needed (Open-Meteo for the weather, BigDataCloud for place names), weather-based themes and illustrations, and tests for the outfit logic and the data layer.",
         },
       ],
     },
@@ -424,9 +453,24 @@ export const singleProjectData = {
     },
     ProjectImages: [
       {
-        id: 3,
-        title: "Portfolio screenshot",
+        id: 0,
+        title: "Portfolio marketing",
         img: Portfolio,
+      },
+      {
+        id: 1,
+        title: "Portfolio home page",
+        img: Pf1,
+      },
+      {
+        id: 2,
+        title: "Portfolio selected work",
+        img: Pf2,
+      },
+      {
+        id: 3,
+        title: "Portfolio on mobile",
+        img: Pf3,
       },
     ],
     ProjectInfo: {
@@ -434,7 +478,7 @@ export const singleProjectData = {
       RepoUrl: "https://github.com/L3VU5/portfolio-paweljedrasik",
       ObjectivesHeading: "Product",
       ObjectivesDetails:
-        "It's the app you're currently using! Snoop around, play with forms, galleries and themes. Have fun!",
+        "It's the app you're currently using! Snoop around, play with the project pages, galleries and forms. Have fun!",
       Technologies: [
         {
           title: "Tools & Technologies",
@@ -442,9 +486,11 @@ export const singleProjectData = {
             "JavaScript",
             "NextJS",
             "React",
-            "Vercel",
             "Tailwind CSS",
             "Framer Motion",
+            "Jest",
+            "React Testing Library",
+            "Vercel",
             "RWD",
           ],
         },
@@ -453,7 +499,7 @@ export const singleProjectData = {
       ProjectDetails: [
         {
           id: 1,
-          details: "Idea, Development, Deployment.",
+          details: "Idea, design, development and deployment.",
         },
       ],
     },
@@ -473,38 +519,59 @@ export const singleProjectData = {
       },
       {
         id: 1,
-        title: "GitHub AutoComplete marketing",
+        title: "GitHub AutoComplete empty state",
         img: Ghac1,
       },
       {
         id: 2,
-        title: "GitHub AutoComplete marketing",
+        title: "GitHub AutoComplete repository results",
         img: Ghac2,
+      },
+      {
+        id: 3,
+        title: "GitHub AutoComplete user results",
+        img: Ghac3,
+      },
+      {
+        id: 4,
+        title: "GitHub AutoComplete on mobile",
+        img: Ghac4,
       },
     ],
     ProjectInfo: {
-      ClientHeading: "Repository",
-      RepoUrl: "https://github.com/L3VU5/GitHub-Autocomplete-Search",
+      ClientHeading: "Links",
+      CompanyInfo: [
+        {
+          id: 1,
+          title: "Live demo",
+          details: "git-hub-autocomplete-search on Vercel",
+          url: "https://git-hub-autocomplete-search.vercel.app",
+        },
+        {
+          id: 2,
+          title: "Repository",
+          details: "L3VU5/GitHub-Autocomplete-Search",
+          url: "https://github.com/L3VU5/GitHub-Autocomplete-Search",
+        },
+      ],
       ObjectivesHeading: "Product",
       ObjectivesDetails:
-        "Showcase of an AutoComplete component. In this project it's using the GitHub API to search for matching Repositories and Users.",
+        "Showcase of an AutoComplete component: accessible (ARIA combobox, keyboard navigation) and debounced. Here it searches GitHub repositories and users through the GraphQL API.",
       Technologies: [
         {
           title: "Tools & Technologies",
           techs: [
-            "JavaScript",
             "TypeScript",
             "NextJS",
             "React",
-            "Vercel",
             "Tailwind CSS",
-            "RWD",
+            "GraphQL",
+            "Apollo Client",
+            "GitHub API",
             "Jest",
             "React Testing Library",
-            "GraphQL",
-            "Apollo",
-            "Lodash",
-            "GitHub API",
+            "Vercel",
+            "RWD",
           ],
         },
       ],
@@ -512,7 +579,12 @@ export const singleProjectData = {
       ProjectDetails: [
         {
           id: 1,
-          details: "Design, Development, Deployment.",
+          details: "Design, development and deployment.",
+        },
+        {
+          id: 2,
+          details:
+            "Refreshed in 2026: Next.js 16 and React 19, the GitHub token moved to the server behind a small API route that only allows the search query, and tests for the component, the helpers and that route.",
         },
       ],
     },
@@ -527,27 +599,27 @@ export const singleProjectData = {
     ProjectImages: [
       {
         id: 0,
-        title: "Harry Potter Minifig marketing",
+        title: "Harry Potter Minifigs marketing",
         img: HpmfMarketing,
       },
       {
         id: 1,
-        title: "Harry Potter Minifig marketing",
+        title: "Harry Potter Minifigs home screen",
         img: Hpmf1,
       },
       {
         id: 2,
-        title: "Harry Potter Minifig marketing",
+        title: "Harry Potter Minifigs drawn figures",
         img: Hpmf2,
       },
       {
         id: 3,
-        title: "Harry Potter Minifig marketing",
+        title: "Harry Potter Minifigs delivery details",
         img: Hpmf3,
       },
       {
         id: 4,
-        title: "Harry Potter Minifig marketing",
+        title: "Harry Potter Minifigs order summary",
         img: Hpmf4,
       },
     ],
@@ -556,19 +628,20 @@ export const singleProjectData = {
       RepoUrl: "https://github.com/L3VU5/lego-harry-potter-minifig",
       ObjectivesHeading: "Product",
       ObjectivesDetails:
-        "Simple application, that allows user to draw five random LEGO Harry Potter Minifigs and select one of them for free. It utilizes Rebrickable API for data.",
+        "Draw five random LEGO Harry Potter minifigs, pick one for free, fill in the delivery details and check the summary with every part of the figure. The data comes from the Rebrickable API.",
       Technologies: [
         {
           title: "Tools & Technologies",
           techs: [
-            "React.js",
             "React Native",
-            "React Navigation",
-            "TypeScript",
             "Expo",
+            "TypeScript",
+            "React Navigation",
             "TanStack Query",
             "React Hook Form",
             "Styled Components",
+            "Jest",
+            "React Native Testing Library",
           ],
         },
       ],
@@ -576,7 +649,12 @@ export const singleProjectData = {
       ProjectDetails: [
         {
           id: 1,
-          details: "Design, Development, Deployment.",
+          details: "Design and development.",
+        },
+        {
+          id: 2,
+          details:
+            "Refreshed in 2026: Expo SDK 58 with React Native 0.88, a dark redesign, fixes in the random draw and the parts list, proper loading and error states, and tests.",
         },
       ],
     },
