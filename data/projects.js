@@ -7,6 +7,7 @@ import MobileImage1 from "../public/ptm-marketing.jpg";
 import GitHubSearch from "../public/ghac-marketing.jpg";
 import HPMinifig from "../public/hpmf-marketing.jpg";
 import Joiyn from "../public/joiyn-marketing.jpg";
+import Smoobu from "../public/smoobu-marketing.jpg";
 
 export const projectsData = [
   {
@@ -14,6 +15,12 @@ export const projectsData = [
     title: "Joiyn",
     category: "Mobile Application",
     img: Joiyn,
+  },
+  {
+    id: 10,
+    title: "Smoobu Calendar & Content Hub",
+    category: "Web Application",
+    img: Smoobu,
   },
   {
     id: 1,

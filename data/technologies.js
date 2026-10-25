@@ -127,7 +127,7 @@ export const technologiesData = [
   "MacOS",
   "Vercel",
   "Vite",
-  "Datadog RUM",
+  "Datadog",
   "Sentry",
   "Snowplow",
   "Localazy",
@@ -139,6 +139,52 @@ export const technologiesData = [
 
   // Cloud Services
   "Firebase",
+
+  // Frontend Libraries
+  "Emotion",
+  "React Router",
+  "TipTap",
+  "dnd-kit",
+  "Day.js",
+  "Lodash",
+  "DOMPurify",
+  "Google Maps (vis.gl)",
+
+  // PHP Backend
+  "Laminas MVC",
+  "Doctrine ORM",
+  "Symfony components",
+  "PHPUnit",
+  "PHPStan",
+  "Rector",
+
+  // Data Stores and Messaging
+  "MySQL",
+  "Valkey/Redis",
+  "Memcached",
+  "RabbitMQ (AMQP)",
+
+  // Infrastructure and APIs
+  "Docker Compose",
+  "LocalStack",
+  "CloudFormation",
+  "Route 53",
+  "IAM",
+  "Cloudflare",
+  "OpenAPI/Swagger",
+  "Duda Partner API",
+
+  // Security and Visual Testing
+  "reCAPTCHA",
+  "Castle",
+  "Checkmarx",
+  "Percy",
+
+  // Tooling
+  "pnpm",
+  "esbuild",
+  "lint-staged",
+  "TypeDoc",
 
   // Miscellaneous
   "NFC",

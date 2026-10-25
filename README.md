@@ -37,7 +37,7 @@ To run this portfolio app locally, follow these steps (Node.js 20.9 or newer):
 
 💻 Strongest in React and TypeScript, also working with React Native and AWS serverless (Node.js). I deliver features on my own, including tests and performance, and mentor others.
 
-💡 Currently working on Smoobu's Content Hub and Calendar, and building Joiyn, a social events app I released alone to the App Store and Google Play.
+💡 Currently shipping the latest features at Smoobu, a vacation rental platform, and building Joiyn, a social events app I released alone to the App Store and Google Play.
 
 ## Technologies Used
 

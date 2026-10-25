@@ -41,6 +41,12 @@ import Joiyn3 from "../public/joiyn3.jpg";
 import Joiyn4 from "../public/joiyn4.jpg";
 import Joiyn5 from "../public/joiyn5.jpg";
 import Joiyn6 from "../public/joiyn6.jpg";
+import SmoobuMarketing from "../public/smoobu-marketing.jpg";
+import Smoobu1 from "../public/smoobu1.png";
+import Smoobu2 from "../public/smoobu2.png";
+import Smoobu3 from "../public/smoobu3.png";
+import Smoobu4 from "../public/smoobu4.png";
+import Smoobu5 from "../public/smoobu5.png";
 
 export const singleProjectData = {
   1: {
@@ -684,6 +690,131 @@ export const singleProjectData = {
           id: 3,
           details:
             "Handle CI/CD, store releases, push notifications and monitoring with Sentry and CloudWatch.",
+        },
+      ],
+    },
+  },
+  10: {
+    ProjectHeader: {
+      title: "Smoobu Calendar & Content Hub",
+      publishDate: "May, 2024",
+      tags: "Frontend / Fullstack / Performance",
+      position: "Senior Full-Stack Developer",
+    },
+    ProjectImages: [
+      {
+        id: 0,
+        title: "Smoobu marketing",
+        img: SmoobuMarketing,
+      },
+      {
+        id: 1,
+        title: "Smoobu multi-property calendar",
+        img: Smoobu1,
+      },
+      {
+        id: 2,
+        title: "Smoobu Content Hub: my properties",
+        img: Smoobu2,
+      },
+      {
+        id: 3,
+        title: "Smoobu Content Hub: listing details synced across channels",
+        img: Smoobu3,
+      },
+      {
+        id: 4,
+        title: "Smoobu Content Hub: photos",
+        img: Smoobu4,
+      },
+      {
+        id: 5,
+        title: "Smoobu Content Hub: rooms and sub-properties",
+        img: Smoobu5,
+      },
+    ],
+    ProjectInfo: {
+      ClientHeading: "About Company",
+      CompanyInfo: [
+        {
+          id: 1,
+          title: "Name",
+          details: "Smoobu",
+        },
+        {
+          id: 2,
+          title: "Services",
+          details: "Vacation rental software",
+        },
+        {
+          id: 3,
+          title: "Website",
+          details: "smoobu.com",
+          url: "https://www.smoobu.com/",
+        },
+      ],
+      ObjectivesHeading: "Product",
+      ObjectivesDetails:
+        "Smoobu is vacation rental software. Hosts manage their listings on Airbnb, Booking.com and Vrbo, their bookings, prices and calendar in one place. Accounts average 10 properties and large clients have 100+.",
+      Technologies: [
+        {
+          title: "Tools & Technologies",
+          techs: [
+            "React",
+            "TypeScript",
+            "Vite",
+            "MUI",
+            "Emotion",
+            "TanStack Query",
+            "Jotai",
+            "React Hook Form",
+            "i18next",
+            "Vitest",
+            "Testing Library",
+            "MSW",
+            "Cypress",
+            "Percy",
+            "SonarCloud",
+            "Node.js",
+            "AWS Lambda",
+            "API Gateway",
+            "DynamoDB",
+            "SQS",
+            "S3",
+            "Duda Partner API",
+            "PHP",
+            "Laminas MVC",
+            "MySQL",
+            "Datadog RUM",
+          ],
+        },
+      ],
+      ProjectDetailsHeading: "My role",
+      ProjectDetails: [
+        {
+          id: 1,
+          details:
+            "Own Content Hub, the React/TypeScript module where 25k users manage their listings on Airbnb, Booking.com and Vrbo: details, policies, fees, tax, availability, photos, listing status, multilingual content and Airbnb compliance.",
+        },
+        {
+          id: 2,
+          details:
+            "Led the Calendar load-time initiative for slow connections and accounts with 100+ properties: real-user monitoring in Datadog, asynchronous code loading, fewer startup requests, deferred third-party scripts and fixes in the PHP monolith. Real-user p75: app start 29% faster, first paint 21% faster and calendar usable 18% sooner.",
+        },
+        {
+          id: 3,
+          details:
+            "Built the new booking Calendar with booking creation and cancellation, date blocking, price settings and price transfer, plus role-based navigation for assistant accounts.",
+        },
+        {
+          id: 4,
+          details:
+            "Took over a non-working Duda website-builder integration and rebuilt it from scratch as three AWS serverless services covering OAuth/SSO, site creation and property data sync.",
+        },
+        {
+          id: 5,
+          details:
+            "Migrated unit tests from Jest to Vitest and MSW, maintain the SonarCloud quality gate and introduced AI-assisted workflows for the team (Claude skills, Jira release notes, Localazy tooling).",
         },
       ],
     },
