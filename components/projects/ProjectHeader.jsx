@@ -3,36 +3,32 @@
 import { useContext } from 'react';
 import { FiClock, FiTag, FiUser } from 'react-icons/fi';
 import SingleProjectContext from '../../context/SingleProjectContext';
+import Reveal from '../ui/Reveal';
 
 const ProjectSingleHeader = ({projectId}) => {
 	const { singleProjectData } = useContext(SingleProjectContext);
-	const project = singleProjectData[projectId];
+	const header = singleProjectData[projectId]?.ProjectHeader;
+	const meta = [
+		{ icon: FiClock, label: 'Started', value: header?.publishDate },
+		{ icon: FiUser, label: 'Role', value: header?.position },
+		{ icon: FiTag, label: 'Focus', value: header?.tags },
+	];
+
 	return (
-		<div>
-			<p className="font-general-medium text-left text-3xl sm:text-4xl font-bold text-primary-dark dark:text-primary-light mt-14 sm:mt-20 mb-7">
-				{project?.ProjectHeader.title}
-			</p>
-			<div className="flex">
-				<div className="flex items-center mr-10">
-					<FiClock className="text-lg text-ternary-dark dark:text-ternary-light" />
-					<span className="font-general-regular ml-2 leading-none text-primary-dark dark:text-primary-light">
-						{project?.ProjectHeader.publishDate}
-					</span>
-				</div>
-				<div className="flex items-center mr-10">
-					<FiUser className="text-lg text-ternary-dark dark:text-ternary-light" />
-					<span className="font-general-regular ml-2 leading-none text-primary-dark dark:text-primary-light">
-						{project?.ProjectHeader.position}
-					</span>
-				</div>
-				<div className="flex items-center">
-					<FiTag className="text-lg text-ternary-dark dark:text-ternary-light" />
-					<span className="font-general-regular ml-2 leading-none text-primary-dark dark:text-primary-light">
-						{project?.ProjectHeader.tags}
-					</span>
-				</div>
-			</div>
-		</div>
+		<Reveal className="mt-10">
+			<h1 className="max-w-4xl text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl">
+				<span className="gradient-text">{header?.title}</span>
+			</h1>
+			<dl className="mt-8 flex flex-wrap gap-3">
+				{meta.map(({ icon: Icon, label, value }) => (
+					<div key={label} className="pill !px-4 !py-2 !text-sm">
+						<Icon aria-hidden="true" className="text-brand-teal" />
+						<dt className="sr-only">{label}</dt>
+						<dd>{value}</dd>
+					</div>
+				))}
+			</dl>
+		</Reveal>
 	);
 };
 

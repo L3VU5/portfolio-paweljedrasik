@@ -2,104 +2,61 @@
 
 import { useContext } from 'react';
 import { FiSearch } from 'react-icons/fi';
+import Reveal from '../ui/Reveal';
+import SectionHeading from '../ui/SectionHeading';
+import SpotlightCard from '../ui/SpotlightCard';
 import { TechnologiesContext } from '../../context/TechnologiesContext';
 
-const ProjectsGrid = () => {
-	const {
-		setSearchTechnology,
-		searchTechByTitle,
-	} = useContext(TechnologiesContext);
+const Technologies = () => {
+	const { searchTechnology, setSearchTechnology, groups } = useContext(TechnologiesContext);
 
 	return (
-		<section className="py-5 sm:py-10 mt-5 sm:mt-10">
-			<p className="font-general-medium text-2xl sm:text-4xl mb-3 text-ternary-dark dark:text-ternary-light">
-				Technologies & Tools
-			</p>
-
-			<div>
-				<div
-					className="
-                        flex
-                        justify-between
-                        border-b border-primary-light
-                        dark:border-secondary-dark
-                        pb-3
-                        gap-3
-                        "
-				>
-
-					<p className="font-general-regular flex items-center text-center text-secondary-dark dark:text-ternary-light text-md sm:text-xl">
-						Search technologies by name
-					</p>
-					<div className="flex justify-between gap-2">
-						<input
-							onChange={(e) => {
-								setSearchTechnology(e.target.value);
-							}}
-							className="font-general-medium 
-                                pl-3
-                                pr-1
-                                sm:px-4
-                                py-2
-                                border 
-                           		border-gray-200
-                                dark:border-secondary-dark
-                                rounded-lg
-                                text-sm
-                                sm:text-md
-                                bg-secondary-light
-                                dark:bg-ternary-dark
-                                text-primary-dark
-                                dark:text-ternary-light
-                                "
-							id="name"
-							name="name"
-							type="search"
-							required=""
-							placeholder="Search technologies..."
-							aria-label="Name"
+		<section id="skills" className="scroll-mt-24 px-5 py-20 sm:px-8">
+			<div className="mx-auto max-w-6xl">
+				<Reveal className="flex flex-wrap items-end justify-between gap-6">
+					<SectionHeading eyebrow="Skills" title="Technologies &" accent="tools." />
+					<label className="relative block w-full sm:w-72">
+						<span className="sr-only">Search technologies by name</span>
+						<FiSearch
+							aria-hidden="true"
+							className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-muted"
 						/>
-						<span
-							className="
-                                hidden
-                                sm:block
-                                bg-primary-light
-                                dark:bg-ternary-dark
-                                p-2.5
-                                shadow-sm
-                                rounded-xl
-                                cursor-pointer
-                                "
-						>
-							<FiSearch className="text-ternary-dark dark:text-ternary-light w-5 h-5"></FiSearch>
-						</span>
-					</div>
-				</div>
-			</div>
+						<input
+							type="search"
+							value={searchTechnology}
+							onChange={(e) => setSearchTechnology(e.target.value)}
+							placeholder="Search technologies..."
+							className="field !rounded-full !pl-11"
+						/>
+					</label>
+				</Reveal>
 
-			<div className="flex flex-wrap mt-6">
-				{ searchTechByTitle.map((tech) => (
-						<div key={tech} className="font-general-medium m-1
-							px-3
-							sm:px-4
-							py-2
-							border 
-							border-gray-200
-							dark:border-secondary-dark
-							rounded-lg
-							text-sm
-							sm:text-md
-							bg-secondary-light
-							dark:bg-ternary-dark
-							text-primary-dark
-							dark:text-ternary-light
-						">
-							<span>{tech}</span>
-						</div>
-				))}
+				<div className="mt-12 columns-1 gap-4 md:columns-2 lg:columns-3">
+					{groups.map((group, index) => (
+						<Reveal key={group.title} delay={(index % 3) * 0.08} className="mb-4 break-inside-avoid">
+							<SpotlightCard className="p-6">
+								<div className="flex items-baseline justify-between gap-3">
+									<h3 className="text-lg font-semibold text-white">{group.title}</h3>
+									<span className="text-xs tabular-nums text-muted">{group.items.length}</span>
+								</div>
+								<ul className="mt-4 flex flex-wrap gap-2">
+									{group.items.map((tech) => (
+										<li key={tech} className="tag tag-hover">
+											{tech}
+										</li>
+									))}
+								</ul>
+							</SpotlightCard>
+						</Reveal>
+					))}
+				</div>
+
+				{groups.length === 0 && (
+					<p className="mt-10 text-center text-muted">Nothing matches your search.</p>
+				)}
 			</div>
 		</section>
 	);
 };
 
-export default ProjectsGrid;
+export default Technologies;

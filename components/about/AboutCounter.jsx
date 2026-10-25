@@ -1,43 +1,21 @@
 'use client';
 
-import { useContext } from 'react';
-import { useCountUp } from 'react-countup';
-import CounterItem from './CounterItem';
-import { TechnologiesContext } from '../../context/TechnologiesContext';
+import Reveal from '../ui/Reveal';
+import Stat from '../ui/Stat';
 import { projectsData } from '../../data/projects';
+import { technologiesData } from '../../data/technologies';
+import { commercialProducts, yearsOfExperience } from '../../lib/site';
 
 const AboutCounter = () => {
-	const { technologiesLength } = useContext(TechnologiesContext);
-	useCountUp({ ref: 'experienceCounter', end: 8, duration: 3 });
-	useCountUp({ ref: 'projectsCounter', end: projectsData.length, duration: 3 });
-	useCountUp({ ref: 'technologiesCounter', end: technologiesLength, duration: 3 });
-	useCountUp({ ref: 'productsCounter', end: 4, duration: 3 });
-
 	return (
-		<div className="mt-10 sm:mt-20 bg-primary-light dark:bg-ternary-dark shadow-sm">
-			<div className="font-general-medium container mx-auto py-20 block sm:flex sm:justify-between items-center">
-				<CounterItem
-					title="Years of experience"
-					counter={<span id="experienceCounter" />}
-					measurement="+"
-				/>				
-				<CounterItem
-					title="Technologies used"
-					counter={<span id="technologiesCounter" />}
-					measurement=""
-				/>			
-				<CounterItem
-					title="Commercial products delivered"
-					counter={<span id="productsCounter" />}
-					measurement=""
-				/>
-				<CounterItem
-					title="Projects showcased"
-					counter={<span id="projectsCounter" />}
-					measurement=""
-				/>
-			</div>
-		</div>
+		<section className="px-5 py-10 sm:px-8">
+			<Reveal className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				<Stat end={yearsOfExperience} suffix="+" label="Years of experience" />
+				<Stat end={technologiesData.length} label="Technologies used" />
+				<Stat end={commercialProducts} label="Commercial products delivered" />
+				<Stat end={projectsData.length} label="Projects showcased" />
+			</Reveal>
+		</section>
 	);
 };
 

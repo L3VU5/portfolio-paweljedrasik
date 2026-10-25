@@ -12,6 +12,7 @@ import Smoobu from "../public/smoobu-marketing.jpg";
 export const projectsData = [
   {
     id: 9,
+    featured: true,
     title: "Joiyn",
     category: "Mobile Application",
     img: Joiyn,
@@ -21,6 +22,7 @@ export const projectsData = [
     title: "Smoobu Calendar & Content Hub",
     category: "Web Application",
     img: Smoobu,
+    featured: true,
   },
   {
     id: 1,
@@ -30,6 +32,7 @@ export const projectsData = [
   },
   {
     id: 2,
+    featured: true,
     title: "Portertrac iOS & Android",
     category: "Mobile Application",
     img: MobileImage1,

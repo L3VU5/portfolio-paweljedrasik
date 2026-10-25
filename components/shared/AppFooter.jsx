@@ -1,58 +1,45 @@
-import {
-	FiGithub,
-	FiLinkedin,
-	FiGlobe,
-} from 'react-icons/fi';
-import AppFooterCopyright from './AppFooterCopyright';
-import { siteUrl } from '../../lib/site';
+import { FiGithub, FiLinkedin } from 'react-icons/fi';
+import { repoUrl, siteName, socialLinks } from '../../lib/site';
 
-const socialLinks = [
-	{
-		id: 1,
-		icon: <FiGlobe />,
-		url: siteUrl,
-	},
-	{
-		id: 2,
-		icon: <FiGithub />,
-		url: 'https://github.com/L3VU5',
-	},
-	{
-		id: 4,
-		icon: <FiLinkedin />,
-		url: 'https://www.linkedin.com/in/paweljedrasik',
-	},
-];
+const icons = { github: FiGithub, linkedin: FiLinkedin };
 
 const AppFooter = () => {
 	return (
-		<div className="container mx-auto">
-			<div className="pt-20 sm:pt-30 pb-8 mt-20 border-t-2 border-primary-light dark:border-secondary-dark">
-				{/* Footer social links */}
-				<div className="font-general-regular flex flex-col justify-center items-center mb-12 sm:mb-28">
-					<p className="text-3xl sm:text-4xl text-primary-dark dark:text-primary-light mb-5">
-						Follow me
-					</p>
-					<ul className="flex gap-4 sm:gap-8">
-						{socialLinks.map((link) => (
-							<a
-								href={link.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								key={link.id}
-								className="text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer rounded-lg bg-gray-50 dark:bg-ternary-dark hover:bg-gray-100 shadow-sm p-4 duration-300"
-							>
-								<i className="text-xl sm:text-2xl md:text-3xl">
-									{link.icon}
-								</i>
-							</a>
-						))}
-					</ul>
-				</div>
-
-				<AppFooterCopyright />
+		<footer className="mt-24 border-t border-white/[0.06] px-5 py-10 sm:px-8">
+			<div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 text-sm text-muted sm:flex-row">
+				<p>
+					&copy; {new Date().getFullYear()} {siteName}. Designed and built by me.
+				</p>
+				<ul className="flex items-center gap-3">
+					{socialLinks.map(({ id, label, url }) => {
+						const Icon = icons[id];
+						return (
+							<li key={id}>
+								<a
+									href={url}
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label={label}
+									className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-lg transition hover:border-brand-violet/60 hover:text-white"
+								>
+									<Icon aria-hidden="true" />
+								</a>
+							</li>
+						);
+					})}
+					<li>
+						<a
+							href={repoUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2.5 text-xs font-medium transition hover:border-brand-violet/60 hover:text-white"
+						>
+							View source
+						</a>
+					</li>
+				</ul>
 			</div>
-		</div>
+		</footer>
 	);
 };
 
